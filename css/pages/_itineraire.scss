@@ -1,18 +1,126 @@
-nav {
+.navigation {
     width: 100%;
     height: 10vh;
 }
-body{
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
     height: 100vh;
     overflow: hidden;
 }
 
 #pageItineraire {
     display: flex;
+
     section {
         width: 50%;
         height: 90vh;
+        overflow-y: scroll;
+        scrollbar-color: $rose;
+
+
+        article {
+            display: flex;
+            gap: 15px;
+            border-radius: 0 6px 0 0;
+            figure {
+                position: relative;
+                width: 25%;
+                overflow: hidden;
+
+                .imgEtape {
+                    width: 100%;
+                    height: 100%;
+                }
+
+                figcaption {
+                    position: absolute;
+                    background-color: $color-texte-clair;
+                    text-align: center;
+                    border-radius: 6px;
+                    top: 10px;
+                    left: 5px;
+                }
+            }
+
+            .contenu {
+                display: flex;
+                flex-flow: column;
+                justify-content: space-between;
+                width: 75%;
+
+                .banniere {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    background-color: $rose;
+                    border-radius: 6px;
+                    padding: 0 10px;
+
+                    .fa-heart {
+                        color: $color-texte-fonce;
+                        font-size: 24px;
+                    }
+                }
+
+
+
+                .fa-circle {
+                    font-size: 10px;
+                }
+
+                .niveau-deb {
+                    color: $vert-facile;
+                    @include niveau;
+                }
+
+                .niveau-moy {
+                    color: $bleu-moyen;
+                    @include niveau;
+                }
+
+                .niveau-dif {
+                    color: $rouge-difficile;
+                    @include niveau;
+                }
+
+                .description {
+                    text-align: justify;
+                    padding: 0 10px 0 0;
+
+                }
+            }
+
+        }
+
+        article:not(:hover) {
+            background-color: $color-texte-clair;
+
+            h2,
+            .description {
+                color: $color-texte-fonce;
+            }
+        }
+
+        article:hover {
+            background-color: $color-texte-fonce;
+            transition: all 1s ease;
+            figure .imgEtape{
+                transform: scale(1.5);
+                transition: all 1s ease;
+            }
+            h2,
+            .description {
+                color: $color-texte-clair;
+            }
+        }
     }
+
+
 
     #map {
         width: 50%;
