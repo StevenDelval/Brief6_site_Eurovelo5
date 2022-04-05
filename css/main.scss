@@ -2,7 +2,7 @@
 @import "abstracts/variables";
 @import "abstracts/mixins";
 
-@import "vendors/vendor";
+@import "vendors/leaflet";
 
 @import "base/normalize";
 
@@ -11,5 +11,6 @@
 @import "components/bouttons";
 
 @import "pages/index";
+@import "pages/itineraire";
 
 @import "themes/theme";
