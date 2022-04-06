@@ -28,6 +28,7 @@ body {
             display: flex;
             gap: 15px;
             border-radius: 0 6px 0 0;
+
             figure {
                 position: relative;
                 width: 25%;
@@ -54,7 +55,7 @@ body {
                 justify-content: space-between;
                 width: 75%;
 
-                .banniere {
+                .presentation {
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
@@ -67,8 +68,6 @@ body {
                         font-size: 24px;
                     }
                 }
-
-
 
                 .fa-circle {
                     font-size: 10px;
@@ -109,10 +108,12 @@ body {
 
         article:hover {
             background-color: #E5e5e5;
-            figure .imgEtape{
+
+            figure .imgEtape {
                 transform: scale(1.5);
                 transition: all 1s ease;
             }
+
             h2,
             .description {
                 color: $color-texte-fonce;

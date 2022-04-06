@@ -47,16 +47,16 @@ var _DAY_IN_MILLIS = 24 * _HOUR_IN_MILLIS;
 var _GPX_STYLE_NS = 'http://www.topografix.com/GPX/gpx_style/0/2';
 
 var _DEFAULT_MARKER_OPTS = {
-  startIconUrl: 'js/leaflet-gpx-main/pin-icon-start.png',
-  endIconUrl: 'js/leaflet-gpx-main/pin-icon-end.png',
-  shadowUrl: 'js/leaflet-gpx-main/pin-shadow.png',
+  startIconUrl: 'img/pin-icon-start.png',
+  endIconUrl: 'img/pin-icon-end.png',
+  shadowUrl: 'img/pin-shadow.png',
   wptIcons: [],
   wptIconsType: [],
   wptIconUrls : {
-    '': 'js/leaflet-gpx-main/pin-icon-wpt.png',
+    '': 'img/pin-icon-wpt.png',
   },
   wptIconTypeUrls : {
-    '': 'js/leaflet-gpx-main/pin-icon-wpt.png',
+    '': 'img/pin-icon-wpt.png',
   },
   pointMatchers: [],
   iconSize: [33, 45],
