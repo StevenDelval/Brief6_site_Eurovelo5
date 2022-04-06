@@ -52,7 +52,6 @@ function printArticle(value) {
 
 
         textNiv = document.createElement("p");
-        console.log(cartel.attributes.niveau);
         switch (cartel.attributes.niveau) {
             case 1:
                 divNiv.classList.add("niveau-deb");
