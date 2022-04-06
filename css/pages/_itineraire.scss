@@ -7,15 +7,12 @@
     height: 100vh;
     overflow: hidden;
 }
-.navitineraire{
-    height: 10vh;
-}
 #pageItineraire {
     display: flex;
-
+    height: 100%;
     section.cartels {
         width: 50%;
-        height: 90vh;
+        
         overflow-y: scroll;
         display: flex;
         flex-flow: column;
