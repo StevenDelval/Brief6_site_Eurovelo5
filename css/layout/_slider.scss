@@ -15,9 +15,15 @@
 .titre-bas {
     position: absolute;
     display:block;
-
     width: 100%;
     color: white;
     transform: translate(0,0);
     font-size: 30px;
+}
+.field{
+    position: absolute;
+    top: 50%;
+    bottom: 300px;
+    width: 100%;
+    text-align: center 
 }
