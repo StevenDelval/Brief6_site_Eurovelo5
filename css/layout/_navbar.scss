@@ -1,0 +1,122 @@
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 20%;
+    height: 100vh;
+    @include flex_column_aicenter;
+    background-image: $cold_evening;
+    color: $couleur_fond_fonce;
+
+  
+ul {
+
+        display: flex;
+        flex-flow: column;
+        justify-content: space-between;
+        height: 300px;
+        margin: 150px 0 0 0;
+
+        li {
+            list-style: none;
+
+            a {
+                display: block;
+                text-decoration: none;
+                color: $couleur_fond_fonce;
+                font-size: 20px;
+            }
+
+            a:not(:hover) {
+                text-shadow: 8px 8px 3px #0c3483;
+
+                a:not(:hover) {
+                    text-shadow: 8px 8px 5px #0c3483;
+                }
+
+                a:hover {
+                    transform: translate(8px, 8px);
+                    transition: all 0.2s ease;
+                }
+
+            }
+        }
+    }
+
+    .logos {
+        display: flex;
+        margin-top: 30px;
+        gap: 10px;
+    }
+
+    .img1 {
+        width: 130px;
+        height: 50px;
+    }
+ }
+
+@media screen and (max-width:790px) {
+    nav {
+        width: 35px;
+
+        .logos {
+            margin: 30px 0 0 0;
+        }
+
+        #burger {
+            width: 30px;
+            height: 2px;
+            background: rgb(2, 2, 2);
+            display: inline-block;
+            position: relative;
+            left: 2px;
+        }
+
+        #burger::before,
+        #burger::after {
+            content: '';
+            width: 30px;
+            height: 2px;
+            background: rgb(2, 1, 1);
+            display: inline-block;
+            position: absolute;
+            transform-origin: center;
+            transition: all 0.3s ease;
+        }
+
+        #burger::before {
+            top: -7px;
+        }
+
+        #burger::after {
+            top: 7px;
+        }
+
+        #burger.open {
+            background: transparent;
+            /* la barre du milieu disparait /
+        }
+
+        / celles du haut et du bas s'inclinent pour former une croix */
+        #burger.open::before {
+            transform: rotate(45deg);
+            top: 0;
+        }
+
+        #burger.open::after {
+            transform: rotate(-45deg);
+            top: 0;
+        }
+    }}}
+    @media only screen and (max-width: 790px) {
+        nav ul li {
+          display: none;
+        }
+        .logos{
+            align-items: center;
+        }
+        #burger{
+            padding-left: 0;
+        }
+      } 
+    
