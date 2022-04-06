@@ -9,7 +9,7 @@
 }
 #pageItineraire {
     display: flex;
-    height: 100%;
+    height: calc(100% - 50px);
     section.cartels {
         width: 50%;
         
