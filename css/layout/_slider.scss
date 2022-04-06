@@ -3,9 +3,21 @@
 }
 .titre-haut {
     position: absolute;
-    top: 70%;
-    left: 50%;
+    display:block;
+    top: 35%;
+    bottom: 300px;
+    width: 100%;
+    text-align: center;
     color: white;
-    font-family: Poppins,sans-serif;
-    font: size 3.5rem;
+    transform: translate(0,0);
+    font-size: 60px;
+}
+.titre-bas {
+    position: absolute;
+    display:block;
+
+    width: 100%;
+    color: white;
+    transform: translate(0,0);
+    font-size: 30px;
 }
