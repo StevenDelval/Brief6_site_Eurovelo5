@@ -9,14 +9,16 @@ function printArticle(value) {
 
         //// Creation contenu gauche
         figure = document.createElement("figure");
+        
         imgetape = document.createElement("img");
         imgetape.src = url + cartel.attributes.imgetape.data.attributes.formats.small.url;
         imgetape.classList.add("imgEtape");
         figure.appendChild(imgetape);
+
         figcaption = document.createElement("figcaption");
         figcaption.innerText = cartel.attributes.km + " Km";
-        figure.appendChild(imgetape);
         figure.appendChild(figcaption);
+
         article.appendChild(figure);
 
         //// Creation contenu droit
@@ -30,6 +32,7 @@ function printArticle(value) {
         presentation.innerText = cartel.attributes.presentation
         divPresentation.appendChild(presentation);
         lien = document.createElement("a");
+        lien.classList.add("carnet")
         heart = document.createElement("i");
         heart.classList.add("fa-regular");
         heart.classList.add("fa-heart");
@@ -39,10 +42,14 @@ function printArticle(value) {
 
         ////// Niveau
         divNiv = document.createElement("div");
+        
+        
         circle = document.createElement("i");
         circle.classList.add("fa-solid");
         circle.classList.add("fa-circle");
         divNiv.appendChild(circle);
+
+
         textNiv = document.createElement("p");
         switch (cartel.attributes.niveau) {
             case "1":
@@ -59,8 +66,9 @@ function printArticle(value) {
                 textNiv.innerText = "Difficile";
                 break;
         }
+
         divNiv.appendChild(textNiv);
-        divContenu.appendChild(divNiv)
+        divContenu.appendChild(divNiv);
 
         //////Etape
         etape = document.createElement("h2");
@@ -77,12 +85,6 @@ function printArticle(value) {
 
         //Ajout de l'article a la section
         section.appendChild(article);
-
-
-
-
-
-
     }
 }
 
