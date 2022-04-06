@@ -1,3 +1,4 @@
+/*Cartel accueil vélo*/
 .carte-accueil-velo {
     display: block;
     position: relative;
@@ -8,7 +9,7 @@
     
     .caps-accueil{
         text-transform: uppercase;
-        font-weight: 700;
+        font-weight: 600;
         color: $color-texte-clair;
         font-size: 20px;
 
@@ -28,11 +29,34 @@
     }
 }
 
-.accueil-velo {
-    max-width: 100% ;
-    font-family: Arial, Helvetica, sans-serif;
-    h2{
-        font-size: 32px;
-        font-weight: 500;
+/*Cartel actualité court*/
+.cartel-actu-court {
+    /*border: #000 solid 1px;*/
+    max-width: 334px;
+    height: auto;
+    border-radius: 14px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25); 
+    display: block;
+    position: relative;
+    img {
+        border-radius: 14px;
+        max-width: 100%;
+    }
+    .text-actu {
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+
+        h6 {
+            font-size: 16px;
+        }
+        .date-actu {
+            font-size: 14px;
+        }
+        .contenu-actu {
+            font-size: 12px;
+        }
     }
 }

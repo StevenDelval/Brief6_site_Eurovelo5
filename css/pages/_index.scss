@@ -1,4 +1,4 @@
-body { background: rgb(173, 219, 253); }
+body { background: #fff }
 #slidy-container { 
   width: 100%;
    margin: 0 auto;
@@ -22,5 +22,14 @@ body { background: rgb(173, 219, 253); }
       display: flex;
       justify-content: center;
       align-items: center;
+  }
+}
+
+.accueil-velo {
+  max-width: 100% ;
+  font-family: Arial, Helvetica, sans-serif;
+  h2{
+      font-size: 32px;
+      font-weight: 500;
   }
 }
