@@ -96,7 +96,7 @@ nav {
             /* la barre du milieu disparait /
         }
 
-        / celles du haut et du bas s'inclinent pour former une croix */
+        /* celles du haut et du bas s'inclinent pour former une croix */
             #burger.open::before {
                 transform: rotate(45deg);
                 top: 0;
