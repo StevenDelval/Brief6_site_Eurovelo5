@@ -44,10 +44,6 @@ function printArticle(value) {
         circle.classList.add("fa-circle");
         divNiv.appendChild(circle);
         textNiv = document.createElement("p");
-        /* switch cartel.attributes.niveau == "1"){
-            divNiv.classList.add("niveau-deb");
-            textNiv.innerText = "ifficile";
-        }else if () */
         switch (cartel.attributes.niveau) {
             case "1":
                 divNiv.classList.add("niveau-deb");
