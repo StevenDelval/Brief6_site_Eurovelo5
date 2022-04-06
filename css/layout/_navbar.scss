@@ -52,6 +52,9 @@ nav {
             top: 80px;
             z-index: 10;
             background-color: white;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
         }
         ul li {
             display: none;
@@ -96,7 +99,7 @@ nav {
         }
 
         #burger.open {
-            background:pink; /* la barre du milieu disparait */
+            background:rgb(254, 254, 254); /* la barre du milieu disparait */
           }
           /* celles du haut et du bas s'inclinent pour former une croix */
           #burger.open::before {
