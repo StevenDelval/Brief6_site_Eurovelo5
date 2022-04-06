@@ -41,6 +41,7 @@
                     background-color: $color-texte-clair;
                     text-align: center;
                     border-radius: 6px;
+                    padding: 2px;
                     top: 10px;
                     left: 5px;
                 }
@@ -124,4 +125,7 @@
     #map {
         width: 50%;
     }
+}
+@media screen and (max-width:790px) {
+    
 }
