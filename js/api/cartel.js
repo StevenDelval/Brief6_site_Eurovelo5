@@ -36,6 +36,7 @@ function printArticle(value) {
         heart = document.createElement("i");
         heart.classList.add("fa-regular");
         heart.classList.add("fa-heart");
+        lien.setAttribute("href", "#");
         lien.appendChild(heart);
         divPresentation.appendChild(lien);
         divContenu.appendChild(divPresentation);
@@ -51,7 +52,6 @@ function printArticle(value) {
 
 
         textNiv = document.createElement("p");
-        console.log(cartel.attributes.niveau);
         switch (cartel.attributes.niveau) {
             case 1:
                 divNiv.classList.add("niveau-deb");
