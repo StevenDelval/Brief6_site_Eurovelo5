@@ -1,0 +1,26 @@
+.carte-accueil-velo {
+    border: #000 solid 1px;
+    width: 245px;
+    height: 300px;
+    
+    p {
+        position: absolute;
+        margin: 0 auto;
+        z-index: 1;
+    }
+
+    img {
+        border-radius: 14px;
+        filter: brightness(60%);
+    }
+}
+
+
+.accueil-velo {
+    max-width: 100% ;
+    font-family: Arial, Helvetica, sans-serif;
+    h2{
+        font-size: 32px;
+        font-weight: 500;
+    }
+}
