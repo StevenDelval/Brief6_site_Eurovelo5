@@ -5,7 +5,7 @@ nav {
     padding-top: 45px;
     padding-left: 4%;
     padding-right: 8%;
-    background-color: rgb(179, 114, 179);
+    background-color: rgb(253, 251, 253);
 
     ul {
         li {
@@ -37,41 +37,55 @@ nav {
         width: 130px;
         height: 50px;
     }
-    #burger {
+
+}
+@media only screen and (max-width: 790px) {   
+     #burger {
+    width: 30px;
+    height: 2px;
+    background: rgb(7, 7, 7);
+    display: inline-block;
+    position: relative;
+    
+}
+    #burger::before,
+    #burger::after {
+        content: "";
         width: 30px;
         height: 2px;
-        background: white;
+        background: rgb(16, 16, 16);
         display: inline-block;
-        position: relative;
-        
+        position: absolute;
+        transform-origin: center;
+        transition: all 0.3s ease;
     }
-    #burger::before,
-        #burger::after {
-            content: "";
-            width: 30px;
-            height: 2px;
-            background: white;
-            display: inline-block;
-            position: absolute;
-            transform-origin: center;
-            transition: all 0.3s ease;
+    #burger::before {
+        top: -7px;
+    }
+    #burger::after {
+        top: 7px;
+    }
+    #burger.open {
+        background:transparent; /* la barre du milieu disparait */
+      }
+      /* celles du haut et du bas s'inclinent pour former une croix */
+      #burger.open::before {
+        transform: rotate(45deg); 
+        top:0;
+      }
+      #burger.open::after {
+        transform: rotate(-45deg);
+        top:0;
+      }
+    }
+    @media only screen and (max-width: 790px) {
+        nav ul li {
+          display: none;
         }
-        #burger::before {
-            top: -7px;
+        .logos{
+            align-items: center;
         }
-        #burger::after {
-            top: 7px;
+        #burger{
+            padding-left: 0;
         }
-        #burger.open {
-            background:transparent; /* la barre du milieu disparait */
-          }
-          /* celles du haut et du bas s'inclinent pour former une croix */
-          #burger.open::before {
-            transform: rotate(45deg); 
-            top:0;
-          }
-          #burger.open::after {
-            transform: rotate(-45deg);
-            top:0;
-          }
-}
+      }
