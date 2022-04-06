@@ -1,7 +1,7 @@
-const url = "http://20.234.10.50:1337";
+const url = "http://20.229.152.219:1337";
 const cartel = "/api/cartels/";
 const recupAll = "?populate=*";
-const section = document.querySelector("section");
+const section = document.querySelector("section.cartels");
 
 function printArticle(value) {
     for (let cartel of value.data) {
@@ -51,20 +51,23 @@ function printArticle(value) {
 
 
         textNiv = document.createElement("p");
+        console.log(cartel.attributes.niveau);
         switch (cartel.attributes.niveau) {
-            case "1":
+            case 1:
                 divNiv.classList.add("niveau-deb");
-                textNiv.innerText = "Debutant";
+                textNiv.innerText = "Débutant";
                 break;
-            case "2":
+            case 2:
                 divNiv.classList.add("niveau-moy");
                 textNiv.innerText = "Moyen";
                 break;
 
-            case "3":
+            case 3:
                 divNiv.classList.add("niveau-dif");
                 textNiv.innerText = "Difficile";
                 break;
+            default:
+                console.log('erreur');
         }
 
         divNiv.appendChild(textNiv);
