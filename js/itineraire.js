@@ -11,7 +11,7 @@ var Stadia_OSMBright = L.tileLayer('https://tiles.stadiamaps.com/tiles/osm_brigh
 
  // URL to your GPX file or the GPX itself
 //  Ajout Gpx //
-var gpx = "gpx_eurovelo5.gpx";
+var gpx = "gpx/gpx_eurovelo5.gpx";
 
 new L.GPX(gpx, {async: true,
     polyline_options: {
