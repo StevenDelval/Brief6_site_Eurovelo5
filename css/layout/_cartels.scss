@@ -1,3 +1,13 @@
+
+/*Grille de la section vélo*/
+.accueil-velo {
+    display: grid;
+    grid-column: (12, auto);
+    margin: 0 10%;
+    gap: 20px;
+}
+
+
 /*Cartel accueil vélo*/
 .carte-accueil-velo {
     display: block;
@@ -57,6 +67,40 @@
         }
         .contenu-actu {
             font-size: 12px;
+        }
+    }
+}
+
+.cartel-actu-long {
+    border: 1px #000 solid;
+    border-radius: 14px;
+    display: flex;
+    img {
+        border-radius: 14px;
+    }
+    .text-actu {
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+
+        h6 {
+            font-size: 18px;
+        }
+        .date-actu {
+            font-size: 16px;
+        }
+        .contenu-actu {
+            font-size: 16px;
+        }
+        .lien-article {
+            border-bottom: 4px solid $rose;
+            a {
+                text-transform: uppercase;
+                color: $color-texte-fonce;
+                text-decoration: none;
+            }
         }
     }
 }
