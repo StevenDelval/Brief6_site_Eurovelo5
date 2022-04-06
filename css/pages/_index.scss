@@ -3,3 +3,23 @@ body { background: rgb(173, 219, 253); }
   width: 100%; overflow: hidden;
    margin: 0 auto;
 }
+
+
+/*Apparence des titres avec des points roses et des sous-titre en lorem*/
+.titre-soustitre-pres {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+.titre-pres {
+  display: flex;
+  gap: 20px;
+  i{
+      color: $rose;
+      width: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+}
