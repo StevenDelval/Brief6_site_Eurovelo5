@@ -36,6 +36,7 @@ function printArticle(value) {
         heart = document.createElement("i");
         heart.classList.add("fa-regular");
         heart.classList.add("fa-heart");
+        lien.setAttribute("href", "#");
         lien.appendChild(heart);
         divPresentation.appendChild(lien);
         divContenu.appendChild(divPresentation);
