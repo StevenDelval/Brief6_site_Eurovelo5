@@ -92,20 +92,17 @@ nav {
         }
 
         #burger.open {
-            background: transparent;
-            /* la barre du milieu disparait /
-        }
-
-        /* celles du haut et du bas s'inclinent pour former une croix */
-            #burger.open::before {
-                transform: rotate(45deg);
-                top: 0;
-            }
-
-            #burger.open::after {
-                transform: rotate(-45deg);
-                top: 0;
-            }
+            background:transparent; /* la barre du milieu disparait */
+          }
+          /* celles du haut et du bas s'inclinent pour former une croix */
+          #burger.open::before {
+            transform: rotate(45deg); 
+            top:0;
+          }
+          #burger.open::after {
+            transform: rotate(-45deg);
+            top:0;
+          }
         }
     }
-}
+
