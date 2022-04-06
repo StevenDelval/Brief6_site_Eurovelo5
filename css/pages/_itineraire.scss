@@ -8,7 +8,7 @@
     margin: 0;
 }
 
-body {
+#itineraire {
     height: 100vh;
     overflow: hidden;
 }
@@ -16,7 +16,7 @@ body {
 #pageItineraire {
     display: flex;
 
-    section {
+    section.cartels {
         width: 50%;
         height: 90vh;
         overflow-y: scroll;
@@ -53,6 +53,7 @@ body {
                 display: flex;
                 flex-flow: column;
                 justify-content: space-between;
+                gap: 5px;
                 width: 75%;
 
                 .presentation {
