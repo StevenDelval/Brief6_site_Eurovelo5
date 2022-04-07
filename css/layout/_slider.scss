@@ -44,3 +44,20 @@
     background-color:rgb(5, 86, 102);
     color:white
 }
+.text-page2 {
+    display: flex;
+    flex-direction:column;
+    justify-content: space-between;
+    width: 600px;
+    height: 800px;
+    text-align: left;
+
+}
+.container-page2{
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    justify-content: space-around;
+    font-size: 100%;
+    font-family: serif;
+}
