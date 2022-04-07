@@ -77,7 +77,7 @@
     .titre-haut {
         position: absolute;
         display:block;
-        top: 25%;
+        top: 5%;
         bottom: 300px;
         width: 100%;
         text-align: center;
@@ -92,11 +92,17 @@
         width: 100%;
         color: white;
         transform: translate(0,0);
-        font-size: 60%;
+        font-size: 20%;
         font-family: serif;
     }   
 }
 .button-lien {
     background-color: black;
     color: white;
+}
+@media screen and (max-width: 675px)  {
+.container-page2 {
+    display: flex;
+    flex-direction:column-reverse;
+}
 }
