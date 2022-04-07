@@ -1,6 +1,11 @@
 nav {
     display: flex;
     align-items: center;
+    position: fixed;
+    top: 0;
+    z-index: 1001;
+    background-color: white;
+    width: 100%;
     ul {
         display: flex;
 
@@ -18,7 +23,7 @@ nav {
                 text-decoration: none;
                 position: relative;
 
-                &::after {
+                ::after {
                     content: "";
                     position: absolute;
                     left: 50%;
@@ -31,9 +36,10 @@ nav {
                     transition: transform 450ms;
                 }
 
-                &:hover {
-                    &::after {
+                :hover {
+                    ::after {
                         transform: translateX(-50%) scaleX(1);
+                        border-bottom:$rose 1px solid;
                     }
                 }
             }
@@ -59,23 +65,24 @@ nav {
 @media screen and (max-width: 675px) {
     nav {
         ul.open {
-            position: absolute;
+            position: fixed;
             bottom: 0;
             left: 0;
             right: 0;
             top: 50px;
             z-index: 1001;
-            background-color: rgba(0, 0, 0, 0.9);
+            background-color: rgba(0, 0, 0, 0.95);
             display: flex;
             flex-direction: column;
             text-align: center;
+            gap: 90px;
         }
         .liens.open {
-            z-index: 1001;
             display: flex;
             gap: 70px;
             color: $color-texte-clair;
             justify-content: center;
+            
 
             a {
                 font-size: 60px;
