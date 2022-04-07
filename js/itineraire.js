@@ -30,8 +30,8 @@ let popup = [];
 for (let gpxetape of liengpx) {
   new L.GPX(gpxetape, {
     polyline_options: {
-      color: '#E5B9B5',
-      weight: 7,
+      color: '#e5b9d5',
+      weight: 5,
       lineCap: 'round'
     }
   }).on('mouseover', function (e) {
@@ -40,7 +40,7 @@ for (let gpxetape of liengpx) {
     })
   }).on('mouseout', function (e) {
     this.setStyle({
-      color: '#E5B9B5'
+      color: '#e5b9d5'
     })
   }).on('loaded', function (e) {
     map.fitBounds(e.target.getBounds());
