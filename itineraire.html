@@ -13,17 +13,21 @@
 <body id="itineraire">
 
     <!-- navbar -->
-    <nav class="navitineraire">
+    <nav>
         <div class="logos">
           <img src="img/logo-petit.png" alt="embleme" />
           <img src="img/eurovelo.png" alt="logo" class="img1" />
         </div>
-        <a id="link" href="#"><span id="burger"></span></a>
+    
         <ul class="list-unstyled">
-          <li><a href="#">A propos</a></li>
-          <li><a href="#">Nos services</a></li>
-          <li><a href="#">Témoignages</a></li>
-          <li><a href="#">Contact</a></li>
+          <a id="link" href="#"><span id="burger"></span></a>
+          <li><a href="#">ACCEUIL</a></li>
+          <li><a href="#">ITINAIRERE</a></li>
+          <li><a href="#">T'EMOIGNAGES</a></li>
+          <li><a href="#">NEWS</a></li>
+          <li class="liens"><a href="https://www.facebook.com/EuroVelo/"><i class="fa-brands fa-facebook"></i></a>
+          <a href="https://twitter.com/ECFEuroVelo?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><i class="fa-brands fa-twitter"></i></a>
+          <a href="https://www.instagram.com/ecfeurovelo/"><i class="fa-brands fa-instagram"></i></a></li>
         </ul>
       </nav>
     <!-- fin de la navbar -->
@@ -32,7 +36,9 @@
 
     <main id="pageItineraire">
         <section class="cartels">
-            <article>
+            <!-- test pour styliser article 
+                
+                <article>
                 <figure>
                     <img class="imgEtape" src="img/1536_orig_cover1920.jpg" alt="Image">
                     <figcaption> Nombre de km</figcaption>
@@ -55,31 +61,7 @@
                     </p>
                 </div>
 
-            </article>
-            <article>
-                <figure>
-                    <img class="imgEtape" src="img/1536_orig_cover1920.jpg" alt="Image">
-                    <figcaption> Nombre de km</figcaption>
-                </figure>
-                <div class="contenu">
-                    <div class="presentation">
-                        <p>Nature, Patrimoine</p>
-                        
-                        <a href="#" class="carnet"><i class="fa-regular fa-heart"></i></a>
-                    </div>
-                    <div class="niveau-deb">
-                        <i class="fa-solid fa-circle"></i>
-                        <p class="text-niv">Niveau de diff</p>
-                    </div>
-                    <h2>Etape</h2>
-                    <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum, repellat.
-                        minus harum ut quod repudiandae cum quis eveniet itaque. Lorem ipsum dolor sit amet consectetur
-                        adipisicing elit. Nisi ad sed, error quisquam animi adipisci voluptatum deserunt neque incidunt
-                        quaerat beatae, placeat cupiditate corrupti? Eligendi voluptas a soluta cumque necessitatibus!
-                    </p>
-                </div>
-
-            </article>
+            </article> -->
 
         </section>
 
@@ -93,8 +75,10 @@
     <script src="js/leaflet/leaflet-src.js"></script>
     <script src="js/leaflet/leaflet-providers.js"></script>
     <script src="js/leaflet-gpx-main/gpx.js"></script>
-    <script src="js/itineraire.js"></script>
     <script src="js/api/cartel.js"></script>
+    <script src="js/itineraire.js"></script>
+    
+    <script src="js/nav.js"></script>
 
 </body>
 
