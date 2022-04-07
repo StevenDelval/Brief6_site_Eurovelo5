@@ -13,6 +13,7 @@ nav {
                 text-decoration: none;
                 color: black;
                 font-size: 20px;
+                text-decoration:underline pink;
             }
         }
     }
@@ -48,16 +49,19 @@ nav {
             
         }
         .liens.open {
-           
-            bottom: 10px;
-            left: 0;
-            right: 0;
             z-index: 1001;
             display: flex;
-            flex-direction: row;
-            gap: 20px;
-            text-align: center;
+            gap: 70px;
             color: $color-texte-clair;
+            justify-content: center;
+        
+            a 
+            {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                gap: 10px;
+            }
             
         }
        
