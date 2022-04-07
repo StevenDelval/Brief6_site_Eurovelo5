@@ -1,18 +1,23 @@
 
-/*Grille de la section vélo*/
 .accueil-velo {
     display: grid;
-    grid-column: (12, auto);
-    margin: 0 10%;
+    grid-template-columns: auto;
+    margin: 0 14%;
+    margin-bottom: 200px;
+    grid-gap: 20px;
+}/*grille pour disposer les élément, pas besoin de l'intégrer ailleurs*/
+
+.quatre-cartels-accueil {
+    grid-column-start: 1;
+    display: flex;
     gap: 20px;
 }
-
-
 /*Cartel accueil vélo*/
 .carte-accueil-velo {
+    /*border: #000 solid 1px;*/
+
     display: block;
     position: relative;
-    /*border: #000 solid 1px;*/
     width: 245px;
     height: 315px;
     border-radius: 14px;
@@ -42,7 +47,10 @@
 /*Cartel actualité court*/
 .cartel-actu-court {
     /*border: #000 solid 1px;*/
-    max-width: 334px;
+    grid-column: 1;
+
+    max-width: 335px;
+    max-height: 400px;
     height: auto;
     border-radius: 14px;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25); 
@@ -67,20 +75,26 @@
         }
         .contenu-actu {
             font-size: 12px;
+            text-align: justify;
         }
     }
 }
 
 .cartel-actu-long {
-    border: 1px #000 solid;
+    /*border: 1px #000 solid;*/
+    grid-column-start: 1;
+    grid-column-end: auto;/*Vas être changé en fonction de la grille*/
+
+    max-width: 100%;/*Peut être changé compte tenu de la grille*/
     border-radius: 14px;
     display: flex;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25); 
     img {
         border-radius: 14px;
+        max-width: 100%;
     }
     .text-actu {
-        padding: 10px;
+        padding: 20px;
         display: flex;
         flex-direction: column;
         gap: 8px;
@@ -93,11 +107,13 @@
             font-size: 16px;
         }
         .contenu-actu {
-            font-size: 16px;
+            font-size: 14px;
+            text-align: justify;
         }
         .lien-article {
             display: flex;
             justify-content: flex-end;
+            margin-top: auto;
             a {
                 text-transform: uppercase;
                 color: $color-texte-fonce;
@@ -105,5 +121,30 @@
                 text-decoration: none;
             }
         }
+    }
+}
+
+.cartel-avis {
+    /*border: 1px solid #000;*/
+    border-radius: 14px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25); 
+    max-width: 335px;
+    max-height: 220px;
+    padding: 10px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    .nom-note {
+        display: flex;
+        justify-content: space-between;
+    }
+    .nom-avis {
+        font-size: 18px;
+    }
+    .contenu {
+        font-size: 14px;
+        text-align: justify;
     }
 }

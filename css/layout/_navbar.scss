@@ -1,11 +1,16 @@
 nav {
     display: flex;
     align-items: center;
+    position: fixed;
+    top: 0;
+    z-index: 1001;
+    background-color: white;
+    width: 100%;
     ul {
         display: flex;
-
+       
         gap: 20px;
-        li {
+        li { margin: auto;
             list-style: none;
 
             a {
@@ -13,29 +18,16 @@ nav {
                 text-decoration: none;
                 color: black;
                 font-size: 20px;
-                text-decoration: underline pink;
+                width: fit-content;
 
                 text-decoration: none;
                 position: relative;
+            }
 
-                &::after {
-                    content: "";
-                    position: absolute;
-                    left: 50%;
-                    bottom: 0;
-                    transform: translateX(-50%) scaleX(0);
-                    transform-origin: 50% 50%;
-                    width: 100%;
-                    height: 1px;
-                    
-                    transition: transform 450ms;
-                }
-
-                &:hover {
-                    &::after {
-                        transform: translateX(-50%) scaleX(1);
-                    }
-                }
+            a:hover {
+                border-bottom: pink 1px solid;
+                transform-origin: center;
+                transition: all 450ms ease;
             }
         }
     }
@@ -59,19 +51,20 @@ nav {
 @media screen and (max-width: 675px) {
     nav {
         ul.open {
-            position: absolute;
+            position: fixed;
             bottom: 0;
             left: 0;
             right: 0;
             top: 50px;
             z-index: 1001;
-            background-color: rgba(0, 0, 0, 0.9);
+            background-color: rgba(0, 0, 0, 0.95);
             display: flex;
             flex-direction: column;
             text-align: center;
+            gap: 90px;
+            
         }
         .liens.open {
-            z-index: 1001;
             display: flex;
             gap: 70px;
             color: $color-texte-clair;
@@ -128,15 +121,15 @@ nav {
             background: rgba(0, 0, 0, 0); /* la barre du milieu disparait */
         }
         /* celles du haut et du bas s'inclinent pour former une croix */
-        #burger.open::before {
+       
+    } #burger.open::before {
             transform: rotate(45deg);
             top: 0;
-            background-color: white;
+            background-color: rgb(255, 255, 255);
         }
         #burger.open::after {
             transform: rotate(-45deg);
             top: 0;
-            background-color: white;
+            background-color: rgb(255, 255, 255);
         }
-    }
 }
