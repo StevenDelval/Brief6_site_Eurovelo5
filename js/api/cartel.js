@@ -1,7 +1,7 @@
-/* const url = "http://20.229.152.219:1337";
+const url = "http://20.229.152.219:1337";
 const cartel = "/api/cartels/";
 const recupAll = "?populate=*";
-const section = document.querySelector("section.cartels"); */
+const section = document.querySelector("section.cartels");
 
 function printArticle(value) {
     for (let cartel of value.data) {
@@ -93,7 +93,7 @@ function printArticle(value) {
     }
 }
 
-/* fetch(url + cartel + recupAll)
+fetch(url + cartel + recupAll)
     .then(response => response.json())
     .then(function (response) {
         response.data.sort(function (a, b) {
@@ -102,4 +102,4 @@ function printArticle(value) {
 
         printArticle(response);
     })
-    .catch(error => alert("Erreur :" + error)); */
+    .catch(error => alert("Erreur :" + error));
