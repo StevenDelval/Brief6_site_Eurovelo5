@@ -1,18 +1,20 @@
 
-/*Grille de la section vélo*/
 .accueil-velo {
     display: grid;
-    grid-column: (auto, 12);
-    margin: 0 10%;
-    gap: 20px;
-}
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 0 14%;
+    margin-bottom: 200px;
+    grid-gap: 20px;
+}/*grille pour disposer les élément, pas besoin de l'intégrer ailleurs*/
 
 
 /*Cartel accueil vélo*/
 .carte-accueil-velo {
+    /*border: #000 solid 1px;*/
+    grid-column: 1;
+
     display: block;
     position: relative;
-    /*border: #000 solid 1px;*/
     width: 245px;
     height: 315px;
     border-radius: 14px;
@@ -42,7 +44,10 @@
 /*Cartel actualité court*/
 .cartel-actu-court {
     /*border: #000 solid 1px;*/
-    max-width: 334px;
+    grid-column: 1;
+
+    max-width: 335px;
+    max-height: 400px;
     height: auto;
     border-radius: 14px;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25); 
@@ -74,6 +79,9 @@
 
 .cartel-actu-long {
     border: 1px #000 solid;
+    grid-column-start: 1;
+    grid-column-end: 4;
+
     max-width: 100%;
     border-radius: 14px;
     display: flex;
@@ -83,7 +91,7 @@
         max-width: 100%;
     }
     .text-actu {
-        padding: 10px;
+        padding: 20px;
         display: flex;
         flex-direction: column;
         gap: 8px;
@@ -110,5 +118,29 @@
                 text-decoration: none;
             }
         }
+    }
+}
+
+.cartel-avis {
+    border: 1px solid #000;
+    border-radius: 14px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25); 
+    max-width: 100%;
+    max-height: 220px;
+    padding: 10px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .nom-note {
+        display: flex;
+        justify-content: space-between;
+    }
+    .nom-avis {
+        font-size: 18px;
+    }
+    .contenu {
+        font-size: 14px;
     }
 }

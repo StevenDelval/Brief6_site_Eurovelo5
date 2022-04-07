@@ -1,9 +1,9 @@
-.accueil-velo {
+.section-boutons {
     display: grid;
-    grid-column: (auto, 12);
+    grid-template-columns: auto;
     margin: 0 10%;
-    gap: 20px;
-}
+    grid-gap: 20px;
+} /*grille pour disposer les élément, pas besoin de l'intégrer ailleurs*/
 
 .cta {
     background-color: $rose;
