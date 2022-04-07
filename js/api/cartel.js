@@ -2,6 +2,34 @@ const url = "http://20.229.152.219:1337";
 const cartel = "/api/cartels/";
 const recupAll = "?populate=*";
 const section = document.querySelector("section.cartels");
+var map = L.map('map').setView([50.62925, 3.057256], 9);
+/// creation map
+var Stadia_OSMBright = L.tileLayer('https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}{r}.png', {
+    maxZoom: 20,
+    attribution: '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
+}).addTo(map);
+
+// URL to your GPX file or the GPX itself
+//  Ajout Gpx //
+var liengpx = ["gpx/calais-ardres.gpx",
+    "gpx/ardres-watten.gpx",
+    "gpx/watten-st-omer.gpx",
+    "gpx/st-omer-aire-sur-la-lys.gpx",
+    "gpx/aire-sur-la-lys-st-venant.gpx",
+    "gpx/st-venant-bethune.gpx",
+    "gpx/bethunes-olhain.gpx",
+    "gpx/olhain-angres.gpx",
+    "gpx/angres-lens.gpx",
+    "gpx/lens-don.gpx",
+    "gpx/don-lille.gpx",
+    "gpx/lille-wattrelos.gpx"];
+
+var customOptions =
+{
+    'className': 'popupCustom'
+}
+let mapEtape = [];
+let popup = [];
 
 function printArticle(value) {
     for (let cartel of value.data) {
@@ -87,11 +115,46 @@ function printArticle(value) {
 
         article.appendChild(divContenu);
 
+        popup[cartel.id - 1] = L.popup(customOptions);
+        mapEtape[cartel.id - 1] = new L.GPX(liengpx[cartel.id - 1], {
+            polyline_options: {
+                color: '#00246B',
+                weight: 5,
+                lineCap: 'round'
+            }
+        }).on('mouseover', function (e) {
+            this.setStyle({
+                color: '#e5b9d5'
+            })
+            popup[cartel.id - 1]
+                .setLatLng(e.latlng)
+                .setContent("<h3>" + cartel.attributes.etape.toString() + "</h3>")
+                .openOn(map);
+        }).on('mouseout', function (e) {
+            map.closePopup();
+            this.setStyle({
+                color: '#00246B'
+            })
+        }).on('loaded', function (e) {
+            map.fitBounds(e.target.getBounds());
+        }).addTo(map);
         //Ajout de l'article a la section
-        section.appendChild(article);
-        
+    section.appendChild(article);
+
+    article.addEventListener('mouseover', () => {
+        mapEtape[cartel.id -1].setStyle({
+            color: '#e5b9d5'
+        });
+    });
+    article.addEventListener('mouseout', () => {
+        mapEtape[cartel.id -1].setStyle({
+            color: '#00246B'
+        }); 
+    });
     }
+
 }
+
 
 fetch(url + cartel + recupAll)
     .then(response => response.json())
@@ -101,5 +164,7 @@ fetch(url + cartel + recupAll)
         })
 
         printArticle(response);
+
+
     })
     .catch(error => alert("Erreur :" + error));
