@@ -2,7 +2,7 @@
 /*Grille de la section vélo*/
 .accueil-velo {
     display: grid;
-    grid-column: (12, auto);
+    grid-column: (auto, 12);
     margin: 0 10%;
     gap: 20px;
 }
@@ -67,17 +67,20 @@
         }
         .contenu-actu {
             font-size: 12px;
+            text-align: justify;
         }
     }
 }
 
 .cartel-actu-long {
     border: 1px #000 solid;
+    max-width: 100%;
     border-radius: 14px;
     display: flex;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25); 
     img {
         border-radius: 14px;
+        max-width: 100%;
     }
     .text-actu {
         padding: 10px;
@@ -93,11 +96,13 @@
             font-size: 16px;
         }
         .contenu-actu {
-            font-size: 16px;
+            font-size: 14px;
+            text-align: justify;
         }
         .lien-article {
             display: flex;
             justify-content: flex-end;
+            margin-top: auto;
             a {
                 text-transform: uppercase;
                 color: $color-texte-fonce;
