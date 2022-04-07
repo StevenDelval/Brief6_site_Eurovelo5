@@ -10,7 +10,8 @@
     text-align: center;
     color: white;
     transform: translate(0,0);
-    font-size: 60px;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 100px;
 }
 .titre-bas {
     position: absolute;
@@ -18,10 +19,28 @@
     width: 100%;
     color: white;
     transform: translate(0,0);
-    font-size: 30px;
+    font-size: 60%;
+    font-family: serif;
 }
 .field{
     position: absolute;
-    top: 50%;
-    
+    top: 55%;
+    left: 50%;
+    transform: translateX(-50%);
+
+}
+.adress1 {
+    width:300px;
+    height: 50px;
+}
+.adress2 {
+    width:300px;
+    height: 50px; 
+
+}
+.button-calcul {
+    width:300px;
+    height: 50px;
+    background-color:rgb(5, 86, 102);
+    color:white
 }
