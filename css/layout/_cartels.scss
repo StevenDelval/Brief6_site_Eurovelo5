@@ -1,17 +1,20 @@
 
 .accueil-velo {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: auto;
     margin: 0 14%;
     margin-bottom: 200px;
     grid-gap: 20px;
 }/*grille pour disposer les élément, pas besoin de l'intégrer ailleurs*/
 
-
+.quatre-cartels-accueil {
+    grid-column-start: 1;
+    display: flex;
+    gap: 20px;
+}
 /*Cartel accueil vélo*/
 .carte-accueil-velo {
     /*border: #000 solid 1px;*/
-    grid-column: 1;
 
     display: block;
     position: relative;
@@ -78,11 +81,11 @@
 }
 
 .cartel-actu-long {
-    border: 1px #000 solid;
+    /*border: 1px #000 solid;*/
     grid-column-start: 1;
-    grid-column-end: 4;
+    grid-column-end: auto;/*Vas être changé en fonction de la grille*/
 
-    max-width: 100%;
+    max-width: 100%;/*Peut être changé compte tenu de la grille*/
     border-radius: 14px;
     display: flex;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25); 
@@ -122,16 +125,16 @@
 }
 
 .cartel-avis {
-    border: 1px solid #000;
+    /*border: 1px solid #000;*/
     border-radius: 14px;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25); 
-    max-width: 100%;
+    max-width: 335px;
     max-height: 220px;
     padding: 10px;
 
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 40px;
 
     .nom-note {
         display: flex;
@@ -142,5 +145,6 @@
     }
     .contenu {
         font-size: 14px;
+        text-align: justify;
     }
 }
