@@ -27,7 +27,41 @@ var customOptions =
 let mapEtape = [];
 let popup = [];
 
-for (let gpxetape of liengpx) {
+
+function creationEtape(response) {
+  for (let etape of response.data) {
+    popup[etape.id - 1] = L.popup(customOptions);
+    mapEtape[etape.id - 1] = new L.GPX(liengpx[etape.id - 1], {
+      polyline_options: {
+        color: '#00246B',
+        weight: 5,
+        lineCap: 'round'
+      }
+    }).on('mouseover', function (e) {
+      this.setStyle({
+        color: '#e5b9d5'
+      })
+      console.log(e);
+      popup[etape.id - 1]
+        .setLatLng(e.latlng)
+        .setContent("<h3>" + etape.attributes.etape.toString() + "</h3>")
+        .openOn(map);
+    }).on('mouseout', function (e) {
+      map.closePopup();
+      this.setStyle({
+        color: '#00246B'
+      })
+    }).on('loaded', function (e) {
+      map.fitBounds(e.target.getBounds());
+    }).addTo(map);
+    console.log(mapEtape[etape.id - 1])
+  }
+}
+
+
+
+
+/* for (let gpxetape of liengpx) {
   new L.GPX(gpxetape, {
     polyline_options: {
       color: '#e5b9d5',
@@ -44,6 +78,6 @@ for (let gpxetape of liengpx) {
     })
   }).on('loaded', function (e) {
     map.fitBounds(e.target.getBounds());
-  }).addTo(map);
-}
+  }).addTo(map);} */
+
 //////////////////
