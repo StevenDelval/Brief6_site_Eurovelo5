@@ -12,3 +12,30 @@ $bleu-moyen:#246DFF;
 $rouge-difficile:#E74C3C;
 
 
+@font-face {
+    font-family: 'frutigerbold';
+    src: url('.../font-face/ftb-webfont.woff2') format('woff2'),
+         url('.../font-face/ftb-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'frutigerlight_cn';
+    src: url('.../font-face/ftlc-webfont.woff2') format('woff2'),
+         url('.../font-face/ftlc-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'frutigerultra_black';
+    src: url('.../font-face/ftubl-webfont.woff2') format('woff2'),
+         url('.../font-face/ftubl-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
