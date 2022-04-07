@@ -1,15 +1,16 @@
-const url = "http://20.229.152.219:1337";
+/* const url = "http://20.229.152.219:1337";
 const cartel = "/api/cartels/";
 const recupAll = "?populate=*";
-const section = document.querySelector("section.cartels");
+const section = document.querySelector("section.cartels"); */
 
 function printArticle(value) {
     for (let cartel of value.data) {
+
         article = document.createElement("article");
 
         //// Creation contenu gauche
         figure = document.createElement("figure");
-        
+
         imgetape = document.createElement("img");
         imgetape.src = url + cartel.attributes.imgetape.data.attributes.formats.small.url;
         imgetape.classList.add("imgEtape");
@@ -43,8 +44,8 @@ function printArticle(value) {
 
         ////// Niveau
         divNiv = document.createElement("div");
-        
-        
+
+
         circle = document.createElement("i");
         circle.classList.add("fa-solid");
         circle.classList.add("fa-circle");
@@ -88,22 +89,17 @@ function printArticle(value) {
 
         //Ajout de l'article a la section
         section.appendChild(article);
+        
     }
 }
 
-fetch(url + cartel + recupAll)
-    .then(function (res) {
-        if (res.ok) {
-            return res.json();
-        }
-    })
-    .then(function (value) {
-        console.log(value);
-        printArticle(value);
+/* fetch(url + cartel + recupAll)
+    .then(response => response.json())
+    .then(function (response) {
+        response.data.sort(function (a, b) {
+            return a.id - b.id;
+        })
 
-
+        printArticle(response);
     })
-    .catch(function (err) {
-        console.log("err")
-        // Une erreur est survenue
-    });
+    .catch(error => alert("Erreur :" + error)); */
