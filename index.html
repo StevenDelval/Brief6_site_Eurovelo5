@@ -1,28 +1,38 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://kit.fontawesome.com/b0162d0160.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+  integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+  crossorigin="anonymous" referrerpolicy="no-referrer" />
   <title>Cartels servez-vous</title>
 </head>
+
 <body>
- 
-    <nav>
-      <div class="logos">
-        <img src="img/logo-petit.png" alt="embleme" />
-        <img src="img/eurovelo.png" alt="logo" class="img1" />
-      </div>
+
+  <nav>
+    <div class="logos">
+      <img src="img/logo-petit.png" alt="embleme" />
+      <img src="img/eurovelo.png" alt="logo" class="img1" />
+    </div>
+
+    <ul class="list-unstyled">
       <a id="link" href="#"><span id="burger"></span></a>
-      <ul class="list-unstyled">
-        <li><a href="#">A propos</a></li>
-        <li><a href="#">Nos services</a></li>
-        <li><a href="#">Témoignages</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-    </nav>
+      <li><a href="#">ACCEUIL</a></li>
+      <li><a href="#">ITINAIRERE</a></li>
+      <li><a href="#">T'EMOIGNAGES</a></li>
+      <li><a href="#">NEWS</a></li>
+      <li class="liens"><a href="https://www.facebook.com/EuroVelo/"><i class="fa-brands fa-facebook"></i></a>
+      <a href="https://twitter.com/ECFEuroVelo?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><i class="fa-brands fa-twitter"></i></a>
+      <a href="https://www.instagram.com/ecfeurovelo/"><i class="fa-brands fa-instagram"></i></a></li>
+    </ul>
+  </nav>
+
     <header>
       <div id="slidy-container">
         <figure id="slidy">
@@ -39,15 +49,17 @@
             </h1>      
           </div>
           <div class="field">
-              <div class="input-autocomplet">
-                <input class="autocomplet-adress" placeholder="Lieu depart">
-                <input class="autocomplet-adress" placeholder="Lieu depart">
-                <button type="button">CALCULER MON INTERIMAIRE</button>           
+              <div class="input">
+                <input class="adress1" placeholder="Lieu depart">
+                <input class="adress2" placeholder="Lieu d'arrivée">
+                <button class ="button-calcul" type="button">CALCULER MON INTERIMAIRE</button>           
               </div>
           </div>
       </div>
-    </header> 
-    <script src="js/nav.js"></script>
-    <script src="js/main.js"></script>
-  </body>
+    </div>
+  </header>
+  <script src="js/nav.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
 </html>

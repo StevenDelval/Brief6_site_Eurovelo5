@@ -1,10 +1,9 @@
 nav {
     display: flex;
     align-items: center;
-    justify-content:space-between ;
     ul {
         display: flex;
-        
+
         gap: 20px;
         li {
             list-style: none;
@@ -12,23 +11,15 @@ nav {
             a {
                 display: block;
                 text-decoration: none;
-              
+                color: black;
                 font-size: 20px;
-            }
-
-            a:not(:hover) {
-                text-shadow: 8px 8px 3px #0c3483;
-
-                a:not(:hover) {
-                    text-shadow: 8px 8px 5px #0c3483;
-                }
-
-                a:hover {
-                    transform: translate(8px, 8px);
-                    transition: all 0.2s ease;
-                }
+                text-decoration:underline pink;
             }
         }
+    }
+    .liens {
+        display: flex;
+        display: none;
     }
 
     .logos {
@@ -42,28 +33,45 @@ nav {
     }
 }
 
-@media screen and (max-width: 600px) {
-    nav {
-        ul.open{
+@media screen and (max-width: 615px) {
+    nav { 
+        ul.open {
             position: absolute;
             bottom: 0;
             left: 0;
             right: 0;
-            top: 80px;
-            z-index: 10;
-            background-color: white;
+            top: 50px;
+            z-index: 1001;
+            background-color: rgba(0, 0, 0,0.9);
             display: flex;
             flex-direction: column;
             text-align: center;
+            
         }
+        .liens.open {
+            z-index: 1001;
+            display: flex;
+            gap: 70px;
+            color: $color-texte-clair;
+            justify-content: center;
+        
+            a 
+            {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                gap: 10px;
+            }
+            
+        }
+       
         ul li {
             display: none;
+            a{
+            color: $color-texte-clair;}
         }
         .logos {
             align-items: center;
-        }
-        #burger {
-            padding-left: 0;
         }
         ul.open li {
             display: block;
@@ -72,7 +80,7 @@ nav {
         #burger {
             width: 30px;
             height: 2px;
-            background: rgb(2, 2, 2);
+            background: rgb(0, 0, 0);
             display: inline-block;
             position: relative;
             left: 2px;
@@ -83,7 +91,7 @@ nav {
             content: "";
             width: 30px;
             height: 2px;
-            background: rgb(2, 1, 1);
+            background: rgb(0, 0, 0);
             display: inline-block;
             position: absolute;
             transform-origin: center;
@@ -99,17 +107,18 @@ nav {
         }
 
         #burger.open {
-            background:rgb(254, 254, 254); /* la barre du milieu disparait */
-          }
-          /* celles du haut et du bas s'inclinent pour former une croix */
-          #burger.open::before {
-            transform: rotate(45deg); 
-            top:0;
-          }
-          #burger.open::after {
+            background: rgba(0, 0, 0,0); /* la barre du milieu disparait */
+        }
+        /* celles du haut et du bas s'inclinent pour former une croix */
+        #burger.open::before {
+            transform: rotate(45deg);
+            top: 0;
+            background-color:white ;
+        }
+        #burger.open::after {
             transform: rotate(-45deg);
-            top:0;
-          }
+            top: 0;
+            background-color: white;
         }
     }
-
+}
