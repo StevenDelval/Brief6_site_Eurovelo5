@@ -69,9 +69,6 @@ nav {
         .logos {
             align-items: center;
         }
-        #burger {
-            padding-left: 0;
-        }
         ul.open li {
             display: block;
         }
@@ -106,7 +103,7 @@ nav {
         }
 
         #burger.open {
-            background: rgb(0, 0, 0); /* la barre du milieu disparait */
+            background: rgba(0, 0, 0,0); /* la barre du milieu disparait */
         }
         /* celles du haut et du bas s'inclinent pour former une croix */
         #burger.open::before {
