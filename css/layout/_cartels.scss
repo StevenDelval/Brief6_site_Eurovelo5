@@ -1,17 +1,4 @@
 
-.accueil-velo {
-    display: grid;
-    grid-template-columns: auto;
-    margin: 0 14%;
-    margin-bottom: 200px;
-    grid-gap: 20px;
-}/*grille pour disposer les élément, pas besoin de l'intégrer ailleurs*/
-
-.quatre-cartels-accueil {
-    grid-column-start: 1;
-    display: flex;
-    gap: 20px;
-}
 /*Cartel accueil vélo*/
 .carte-accueil-velo {
     /*border: #000 solid 1px;*/
@@ -47,8 +34,7 @@
 /*Cartel actualité court*/
 .cartel-actu-court {
     /*border: #000 solid 1px;*/
-    grid-column: 1;
-
+    background-color: #fff;
     max-width: 335px;
     max-height: 400px;
     height: auto;

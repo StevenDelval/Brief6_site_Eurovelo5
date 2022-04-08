@@ -33,3 +33,31 @@ body { background: #fff }
       font-weight: 500;
   }
 }
+
+
+.accueil-velo {
+  position: relative;
+  max-width: fit-content;
+  margin: 0 auto;
+  margin-bottom: 2%;
+  .quatre-cartels-accueil {
+    margin-top: 40px;
+    grid-column-start: 1;
+    display: flex;
+    gap: 20px;
+}
+}/*grille pour disposer les élément, pas besoin de l'intégrer ailleurs*/
+
+.actu {
+  .actu-img {
+    background-image: url(https://media.eurovelo.com/images/2a/64/125_orig_cover1920.jpg);
+    max-width: 100%;
+    .range-cartels {
+      max-width: max-content;
+      max-height: max-content;
+      display: flex;
+      gap: 20px;
+      margin: 0 auto;
+    }
+  }
+}
