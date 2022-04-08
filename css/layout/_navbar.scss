@@ -6,6 +6,8 @@ nav {
     z-index: 1001;
     background-color: white;
     width: 100%;
+    padding: 20px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25); 
     ul {
         display: flex;
        
@@ -16,8 +18,9 @@ nav {
             a {
                 display: block;
                 text-decoration: none;
-                color: black;
+                color: $color-texte-fonce;
                 font-size: 20px;
+                font-weight: 500;
                 width: fit-content;
 
                 text-decoration: none;
@@ -25,7 +28,7 @@ nav {
             }
 
             a:hover {
-                border-bottom: pink 1px solid;
+                border-bottom: $rose 2px solid;
                 transform-origin: center;
                 transition: all 450ms ease;
             }
