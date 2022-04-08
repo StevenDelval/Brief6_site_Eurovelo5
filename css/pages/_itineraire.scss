@@ -89,6 +89,10 @@
                 .description {
                     text-align: justify;
                     padding: 0 10px 0 0;
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 3;
+                    overflow: hidden;
 
                 }
             }
