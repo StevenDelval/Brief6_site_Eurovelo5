@@ -11,3 +11,24 @@ footer{
        list-style: none;
    }
 }
+
+@media screen and (max-width: 700px) {
+    footer{
+        .imgfoot{
+            width: 117px;
+            height: 60px;
+        }
+        .liens2{
+            display: none;
+        }
+    }
+}
+
+@media screen and (max-width: 400px) {
+    footer{
+     .imgfoot{
+      width:90px ;
+      height:40px ;
+     }
+    }
+}
