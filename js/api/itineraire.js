@@ -35,6 +35,7 @@ function printArticle(value) {
     for (let cartel of value.data) {
 
         article = document.createElement("article");
+        article.setAttribute("data-id", "etape" + cartel.id);
 
         //// Creation contenu gauche
         figure = document.createElement("figure");
@@ -134,24 +135,32 @@ function printArticle(value) {
             map.closePopup();
             this.setStyle({
                 color: '#00246B'
+            }).on('click', function (e) {
+                document.location.href = "etape.html?etape=" + cartel.id ;
             })
         }).on('loaded', function (e) {
             map.fitBounds(e.target.getBounds());
         }).addTo(map);
-        //Ajout de l'article a la section
-    section.appendChild(article);
 
-    article.addEventListener('mouseover', () => {
-        mapEtape[cartel.id -1].setStyle({
-            color: '#e5b9d5'
+
+        //Ajout de l'article a la section
+        section.appendChild(article);
+
+        article.addEventListener('mouseover', () => {
+            mapEtape[cartel.id - 1].setStyle({
+                color: '#e5b9d5'
+            });
         });
-    });
-    article.addEventListener('mouseout', () => {
-        mapEtape[cartel.id -1].setStyle({
-            color: '#00246B'
-        }); 
-    });
-    }
+        article.addEventListener('mouseout', () => {
+            mapEtape[cartel.id - 1].setStyle({
+                color: '#00246B'
+            });
+        });
+        article.addEventListener('click', () => {
+            document.location.href = "etape.html?etape=" + cartel.id;
+        });
+
+}
 
 }
 

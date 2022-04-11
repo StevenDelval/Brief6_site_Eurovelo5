@@ -1,54 +1,64 @@
 section {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr 1fr 1fr ;
     grid-gap: 10px;
     grid-auto-rows: minmax(100px, auto);
     background-color: rgb(252, 249, 249);
+    margin-top: 100px;
     
 
     .tab1 {
         grid-column: 1 / 2;
-        grid-row: 1;
+        grid-row: 1/5;
         border: black ridge;
     }
     .tab2 {
         grid-column: 1 / 2;
-        grid-row: 2 / 2;
+        grid-row: 5/10;
         border: black ridge;
     }
     .tab3 {
         grid-column: 1 / 2;
-        grid-row: 3 / 3;
+        grid-row: 10/15;
         border: black ridge;
     }
     .tab4 {
         grid-column: 3/4;
-        grid-row: 3;
+        grid-row: 10/15;
         border: black ridge;
     }
     .tab5 {
         grid-column: 2 / 3;
-        grid-row: 1;
+        grid-row: 1/5;
         border: black ridge;
     }
     .tab6 {
         grid-column: 2 / 3;
-        grid-row: 2;
+        grid-row: 5/10;
         border: black ridge;
     }
     .tab7 {
         grid-column: 2 / 3;
-        grid-row: 3;
+        grid-row: 10/15;
         border: black ridge;
     }
     .tab8 {
         grid-column:3/4;
-        grid-row: 2;
+        grid-row: 5/10;
         border: black ridge;
     }
     .tab9 {
         grid-column:3/4;
-        grid-row: 1;
+        grid-row: 1/5;
         border: black ridge;
+    }
+    .boutontab{
+        max-width:170px ;
+        height: 40px;
+    }
+    .imgtab{
+        width:100%;
+        height: 300px;
+        object-fit: cover;
     }
 }
