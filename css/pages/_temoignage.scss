@@ -1,10 +1,11 @@
-section {
+.ui{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr ;
     grid-gap: 10px;
     grid-auto-rows: minmax(100px, auto);
     background-color: rgb(252, 249, 249);
     margin-top: 100px;
+    margin-bottom: 150px;
     
 
     .tab1 {
@@ -55,6 +56,7 @@ section {
     .boutontab{
         max-width:170px ;
         height: 40px;
+        
     }
     .imgtab{
         width:100%;
