@@ -182,9 +182,10 @@
         flex-direction: column;
         .text-actu {
             padding: 10px;
+            z-index: 2;
         }
-        img {
-
+        .img {
+            max-width: 200px;
         }
     }
     .grid-article {
