@@ -113,7 +113,7 @@
   }
 /*------- media query page slider -----*/
 
-/*@media screen and (max-width: 675px)  {
+@media screen and (max-width: 675px)  {
     .titre-haut {
         position: absolute;
         display:block;
@@ -130,15 +130,15 @@
         color: white;
         transform: translate(0,0);
     }   
-}*/
+}
 
 @media screen and (max-width: 675px)  {
-.container-page2 {
-    display: flex;
-    flex-direction:column-reverse;
-    max-width: 80%;
-    gap: 20px;
-}
+    .container-page2 {
+        display: flex;
+        flex-direction:column-reverse;
+        max-width: 80%;
+        gap: 20px;
+    }
 }
 .button-lien {
     width: 500px;
