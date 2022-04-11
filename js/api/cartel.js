@@ -1,4 +1,4 @@
-const url = "http://20.107.25.125:1337";
+const url = "http://51.137.57.138:1337";
 const cartel = "/api/cartels/";
 const recupAll = "?populate=*";
 const section = document.querySelector("section.cartels");
