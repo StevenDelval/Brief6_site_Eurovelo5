@@ -71,7 +71,7 @@
     grid-column-start: 1;
     grid-column-end: auto;/*Vas être changé en fonction de la grille*/
 
-    max-width: 100%;/*Peut être changé compte tenu de la grille*/
+    max-width: 45%;/*Peut être changé compte tenu de la grille*/
     border-radius: 14px;
     display: flex;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25); 
@@ -168,5 +168,10 @@
         h2 {
             font-size: 18px;
         }
+    }
+    .cartel-actu-long {
+        display: flex;
+        flex-direction: column;
+        max-width: 80%;
     }
 }
