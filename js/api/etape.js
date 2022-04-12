@@ -51,7 +51,8 @@ function $_GET(param) {
 
 
 
-function printEtape(value) {
+function printEtape(response,numEtape) {
+    value=response[numEtape-1]
 
 
     article = document.createElement("article");
@@ -191,7 +192,7 @@ function printEtape(value) {
                     weight: 5,
                     lineCap: 'round'
                 }
-            }).on('mouseover', function (e) {
+            }).on('mouseover mousemove', function (e) {
                 this.setStyle({
                     color: '#e5b9d5'
                 })
@@ -209,6 +210,19 @@ function printEtape(value) {
             }).on('loaded', function (e) {
                 map.fitBounds(e.target.getBounds());
             }).addTo(map);
+
+            var el = L.control.elevation();
+            el.addTo(map);
+            var g = new L.GPX(liengpx[gpxetape], { async: true });
+            g.on("addline", function (e) {
+                e.line.options.color = "#e5b9d5";
+                el.addData(e.line);
+            });
+           /* .on('mouseover mousemove',(e)=>{
+                popup[gpxetape]
+                .setLatLng(e.latlng)
+                .openOn(map);
+            }) */
         } else {
             popup[gpxetape] = L.popup(customOptions);
             mapEtape[gpxetape] = new L.GPX(liengpx[gpxetape], {
@@ -217,13 +231,13 @@ function printEtape(value) {
                     weight: 5,
                     lineCap: 'round'
                 }
-            }).on('mouseover', function (e) {
+            }).on('mouseover mousemove', function (e) {
                 this.setStyle({
                     color: '#00246B'
                 })
                 popup[gpxetape]
                     .setLatLng(e.latlng)
-                    .setContent("<h3>" + value.attributes.etape.toString() + "</h3>")
+                    .setContent("<h3>" + response[gpxetape].attributes.etape.toString() + "</h3>")
                     .openOn(map);
             }).on('mouseout', function (e) {
                 map.closePopup();
@@ -238,6 +252,7 @@ function printEtape(value) {
 
         }
     }
+
 
 
     //Ajout de l'article a la section
@@ -256,7 +271,7 @@ fetch(url + liencartel + recupAll)
         })
 
         numEtape = $_GET('etape');
-        printEtape(response.data[numEtape - 1]);
+        printEtape(response.data,numEtape);
 
 
     })

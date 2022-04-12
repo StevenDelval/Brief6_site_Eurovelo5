@@ -123,7 +123,7 @@ function printArticle(value) {
                 weight: 5,
                 lineCap: 'round'
             }
-        }).on('mouseover', function (e) {
+        }).on('mouseover mousemove', function (e) {
             this.setStyle({
                 color: '#e5b9d5'
             })
