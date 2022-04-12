@@ -1,5 +1,5 @@
 const url = "http://51.137.57.138:1337";
-const cartel = "/api/cartels/";
+const liencartel = "/api/cartels/";
 const recupAll = "?populate=*";
 const section = document.querySelector("section.cartels");
 var map = L.map('map').setView([50.62925, 3.057256], 9);
@@ -165,7 +165,7 @@ function printArticle(value) {
 }
 
 
-fetch(url + cartel + recupAll)
+fetch(url + liencartel + recupAll)
     .then(response => response.json())
     .then(function (response) {
         response.data.sort(function (a, b) {
