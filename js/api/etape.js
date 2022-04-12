@@ -3,7 +3,7 @@ const url = "http://51.137.57.138:1337";
 const liencartel = "/api/cartels";
 const recupAll = "?populate=*";
 const section = document.querySelector("section.cartel");
-var map = L.map('map').setView([50.62925, 3.057256], 9);
+var map = L.map('map').setView([50.62925, 3.057256], 10);
 
 var customOptions =
 {
@@ -56,6 +56,9 @@ function printEtape(value) {
 
     article = document.createElement("article");
 
+    //////Etape
+    etape = document.createElement("h2");
+
     ///Lien retour
     a = document.createElement("a");
     a.classList.add("back");
@@ -64,18 +67,17 @@ function printEtape(value) {
     arrow.classList.add("fa-solid");
     arrow.classList.add("fa-arrow-left-long");
     a.appendChild(arrow);
-    article.appendChild(a);
+    etape.appendChild(a)
 
-    //////Etape
-    etape = document.createElement("h2");
-    etape.innerText = value.attributes.etape
-    article.appendChild(etape)
-
+    span = document.createElement("span")
+    span.innerText = value.attributes.etape;
+    etape.appendChild(span)
+    article.appendChild(etape);
     ///// Presentation
     divPresentation = document.createElement("div");
     divPresentation.classList.add("presentation");
     presentation = document.createElement("p");
-    presentation.innerText = value.attributes.presentation
+    presentation.innerText = value.attributes.presentation;
     divPresentation.appendChild(presentation);
     lien = document.createElement("a");
     lien.classList.add("carnet")
@@ -153,7 +155,7 @@ function printEtape(value) {
     divNiv.appendChild(textNiv);
     divParcour.appendChild(divNiv);
 
-    article.appendChild(divParcour)
+    article.appendChild(divParcour);
 
 
 
@@ -178,7 +180,7 @@ function printEtape(value) {
 
 
     // Ajout tracer map
-    
+
     for (let gpxetape in liengpx) {
         gpxetape = parseInt(gpxetape);
         if (gpxetape == value.id - 1) {
@@ -240,11 +242,6 @@ function printEtape(value) {
 
     //Ajout de l'article a la section
     section.appendChild(article);
-    // Evenement Sur l'article
-
-    article.addEventListener('click', () => {
-        document.location.href = "itineraire.html";
-    });
 
 }
 

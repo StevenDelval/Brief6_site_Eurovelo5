@@ -18,18 +18,21 @@
             display: flex;
             flex-flow: column;
             gap: 15px;
-            .back{
-                position: absolute;
-                top: 0px;
-                text-decoration: none;
-                .fa-arrow-left-long{
-                    font-size: 36px;
-                    color: black;
-                }
-            }
-            
+
+
             h2 {
-                align-self: center;
+                font-size: 32px;
+                .back {
+                    margin-right: 10px;
+
+                    text-decoration: none;
+
+                    .fa-arrow-left-long {
+                        
+                        color: black;
+                    }
+                }
+
                 padding: 0 0 0 20px;
             }
 
@@ -107,7 +110,8 @@
                     left: 5px;
                 }
             }
-            .description{
+
+            .description {
                 text-align: justify;
                 padding-left: 20px;
                 padding-right: 10px;
