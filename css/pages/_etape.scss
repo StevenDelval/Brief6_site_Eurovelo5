@@ -1,0 +1,141 @@
+#pagetape {
+    height: 100vh;
+    overflow: hidden;
+}
+
+#etape {
+    display: flex;
+    height: calc(100% - 71px);
+    margin-top: 71px;
+
+    section.cartel {
+        width: 50%;
+        overflow-y: scroll;
+
+        article {
+            position: relative;
+            margin-top: 10px;
+            display: flex;
+            flex-flow: column;
+            gap: 15px;
+            .back{
+                position: absolute;
+                top: 0px;
+                text-decoration: none;
+                .fa-arrow-left-long{
+                    font-size: 36px;
+                    color: black;
+                }
+            }
+            
+            h2 {
+                align-self: center;
+                padding: 0 0 0 20px;
+            }
+
+
+            .presentation {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                background-color: $rose;
+                border-radius: 6px;
+                padding: 0 10px;
+
+                .fa-heart {
+                    color: $color-texte-fonce;
+                    font-size: 24px;
+                }
+            }
+
+            .parcour {
+                display: flex;
+                justify-content: center;
+                gap: 20px;
+
+                .distance {
+                    display: flex;
+                    gap: 5px;
+
+                    i {
+                        font-size: 16px;
+
+                    }
+                }
+
+                .duree {
+                    display: flex;
+                    gap: 5px;
+
+                    i {
+                        font-size: 16px;
+                    }
+                }
+
+                .niveau-deb {
+                    color: $vert-facile;
+                    @include niveau;
+                }
+
+                .niveau-moy {
+                    color: $bleu-moyen;
+                    @include niveau;
+                }
+
+                .niveau-dif {
+                    color: $rouge-difficile;
+                    @include niveau;
+                }
+            }
+
+            figure {
+                width: 100%;
+                height: 320px;
+                overflow: hidden;
+
+                .imgEtape {
+                    width: 100%;
+                    height: 100%;
+                }
+
+                figcaption {
+                    background-color: $color-texte-clair;
+                    text-align: center;
+                    border-radius: 6px;
+                    padding: 2px;
+                    top: 10px;
+                    left: 5px;
+                }
+            }
+            .description{
+                text-align: justify;
+                padding-left: 20px;
+                padding-right: 10px;
+            }
+
+
+
+
+
+        }
+
+
+    }
+
+
+
+    #map {
+        width: 50%;
+    }
+}
+
+.popupCustom .leaflet-popup-tip,
+.popupCustom .leaflet-popup-content-wrapper {
+    background: #222;
+    opacity: 0.9;
+
+    h3 {
+        text-decoration: none;
+        color: white;
+    }
+}
