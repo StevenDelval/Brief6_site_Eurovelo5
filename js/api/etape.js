@@ -51,12 +51,85 @@ function $_GET(param) {
 
 
 
-function printEtape(response,numEtape) {
-    value=response[numEtape-1]
+function printEtape(response, numEtape) {
+    value = response[numEtape - 1]
 
 
+    // Ajout tracer map
+    for (let gpxetape in liengpx) {
+        gpxetape = parseInt(gpxetape);
+        if (gpxetape == value.id - 1) {
+            popup[gpxetape] = L.popup(customOptions);
+            mapEtape[gpxetape] = new L.GPX(liengpx[gpxetape], {
+                polyline_options: {
+                    color: '#e5b9d5',
+                    weight: 5,
+                    lineCap: 'round'
+                }
+            }).on('mouseover mousemove', function (e) {
+                this.setStyle({
+                    color: '#e5b9d5'
+                })
+                popup[gpxetape]
+                    .setLatLng(e.latlng)
+                    .setContent("<h3>" + value.attributes.etape.toString() + "</h3>")
+                    .openOn(map);
+            }).on('mouseout', function (e) {
+                map.closePopup();
+                this.setStyle({
+                    color: '#e5b9d5'
+                }).on('click', function (e) {
+                    document.location.href = "etape.html?etape=" + parseInt(gpxetape + 1);
+                })
+            }).on('loaded', function (e) {
+                map.fitBounds(e.target.getBounds());
+            }).addTo(map);
+            if (window.innerWidth <= 790) {
+                var el = L.control.elevation({
+                    width: 0.8 * window.innerWidth
+                });
+            } else {
+                var el = L.control.elevation({
+                    width: 0.45 * window.innerWidth
+                });
+            }
+            el.addTo(map);
+            var g = new L.GPX(liengpx[gpxetape], { async: true });
+            g.on("addline", function (e) {
+                e.line.options.color = "#e5b9d5";
+                el.addData(e.line);
+            });
+
+        } else {
+            popup[gpxetape] = L.popup(customOptions);
+            mapEtape[gpxetape] = new L.GPX(liengpx[gpxetape], {
+                polyline_options: {
+                    color: '#6f6f6f',
+                    weight: 5,
+                    lineCap: 'round'
+                }
+            }).on('mouseover mousemove', function (e) {
+                this.setStyle({
+                    color: '#00246B'
+                })
+                popup[gpxetape]
+                    .setLatLng(e.latlng)
+                    .setContent("<h3>" + response[gpxetape].attributes.etape.toString() + "</h3>")
+                    .openOn(map);
+            }).on('mouseout', function (e) {
+                map.closePopup();
+                this.setStyle({
+                    color: '#6f6f6f'
+                }).on('click', function (e) {
+                    document.location.href = "etape.html?etape=" + parseInt(gpxetape + 1);
+                })
+            }).on('loaded', function (e) {
+                map.fitBounds(e.target.getBounds());
+            }).addTo(map);
+
+        }
+    }
     article = document.createElement("article");
-
     //////Etape
     etape = document.createElement("h2");
 
@@ -171,6 +244,8 @@ function printEtape(response,numEtape) {
     figure.appendChild(imgetape);
     article.appendChild(figure);
 
+    article.appendChild(document.querySelector(".elevation"));
+
     ////// Description
     description = document.createElement("p");
     description.classList.add("description");
@@ -180,78 +255,11 @@ function printEtape(response,numEtape) {
 
 
 
-    // Ajout tracer map
+window.addEventListener('resize',()=>{
+    location.reload()
+})
 
-    for (let gpxetape in liengpx) {
-        gpxetape = parseInt(gpxetape);
-        if (gpxetape == value.id - 1) {
-            popup[gpxetape] = L.popup(customOptions);
-            mapEtape[gpxetape] = new L.GPX(liengpx[gpxetape], {
-                polyline_options: {
-                    color: '#e5b9d5',
-                    weight: 5,
-                    lineCap: 'round'
-                }
-            }).on('mouseover mousemove', function (e) {
-                this.setStyle({
-                    color: '#e5b9d5'
-                })
-                popup[gpxetape]
-                    .setLatLng(e.latlng)
-                    .setContent("<h3>" + value.attributes.etape.toString() + "</h3>")
-                    .openOn(map);
-            }).on('mouseout', function (e) {
-                map.closePopup();
-                this.setStyle({
-                    color: '#e5b9d5'
-                }).on('click', function (e) {
-                    document.location.href = "etape.html?etape=" + parseInt(gpxetape + 1);
-                })
-            }).on('loaded', function (e) {
-                map.fitBounds(e.target.getBounds());
-            }).addTo(map);
 
-            var el = L.control.elevation();
-            el.addTo(map);
-            var g = new L.GPX(liengpx[gpxetape], { async: true });
-            g.on("addline", function (e) {
-                e.line.options.color = "#e5b9d5";
-                el.addData(e.line);
-            });
-           /* .on('mouseover mousemove',(e)=>{
-                popup[gpxetape]
-                .setLatLng(e.latlng)
-                .openOn(map);
-            }) */
-        } else {
-            popup[gpxetape] = L.popup(customOptions);
-            mapEtape[gpxetape] = new L.GPX(liengpx[gpxetape], {
-                polyline_options: {
-                    color: '#6f6f6f',
-                    weight: 5,
-                    lineCap: 'round'
-                }
-            }).on('mouseover mousemove', function (e) {
-                this.setStyle({
-                    color: '#00246B'
-                })
-                popup[gpxetape]
-                    .setLatLng(e.latlng)
-                    .setContent("<h3>" + response[gpxetape].attributes.etape.toString() + "</h3>")
-                    .openOn(map);
-            }).on('mouseout', function (e) {
-                map.closePopup();
-                this.setStyle({
-                    color: '#6f6f6f'
-                }).on('click', function (e) {
-                    document.location.href = "etape.html?etape=" + parseInt(gpxetape + 1);
-                })
-            }).on('loaded', function (e) {
-                map.fitBounds(e.target.getBounds());
-            }).addTo(map);
-
-        }
-    }
 
 
 
@@ -271,7 +279,9 @@ fetch(url + liencartel + recupAll)
         })
 
         numEtape = $_GET('etape');
-        printEtape(response.data,numEtape);
+        printEtape(response.data, numEtape);
+
+
 
 
     })
