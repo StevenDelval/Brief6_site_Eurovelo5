@@ -2,7 +2,7 @@
 const url = "http://51.137.57.138:1337";
 const liencartel = "/api/cartels";
 const recupAll = "?populate=*";
-const section = document.querySelector("section.cartel");
+const section = document.querySelector("section.etape");
 var map = L.map('map').setView([50.62925, 3.057256], 10);
 
 var customOptions =
@@ -67,7 +67,7 @@ function printEtape(value) {
     arrow.classList.add("fa-solid");
     arrow.classList.add("fa-arrow-left-long");
     a.appendChild(arrow);
-    etape.appendChild(a)
+    etape.appendChild(a);
 
     span = document.createElement("span")
     span.innerText = value.attributes.etape;
