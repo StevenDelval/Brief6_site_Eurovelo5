@@ -7,10 +7,24 @@ function printNews(data) {
     for (let article of data.data) {//on a plusieurs données, on vas utiliser le for of
         let eltArticle = document.createElement('article'); //on a créer un article mais il n'est nulle-part
         gridArticle.appendChild(eltArticle);
+
+        let picture = document.createElement("img");
+        picture.setAttribute("src", url+article.attributes.image.data.attributes.formats.small.url);
+        eltArticle.appendChild(picture);
+
+
         let titre = document.createElement("h6");
         titre.innerText = article.attributes.titre;
         eltArticle.classList.add("cartel-actu-long");
         eltArticle.appendChild(titre);
+
+        let date = document.createElement("p");
+        date.innerText = article.attributes.date;
+        eltArticle.appendChild(date);
+
+        let contenuActu = document.createElement(".contenu-actu");
+        contenu.innerText = article.attributes.date;
+        eltArticle.appendChild(.contenu-actu);
     }
 }
 function getNews() {
