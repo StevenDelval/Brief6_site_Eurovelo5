@@ -1,0 +1,35 @@
+#info {
+  main {
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 1200px;
+    gap: 10px;
+    article {
+        position: relative;
+        h1{
+            position: absolute;
+            top:50%;
+            left:15px;
+            right: 15px;
+            text-align: center;
+            transform: translateY(-50%);
+            color: aliceblue;
+        }
+    }
+  }
+  h2 {
+    color: hsl(240, 91%, 14%);
+  }
+  p {
+    font-size: 24px;
+  }
+  img {
+    height: 100%;
+    width: 100%;
+  }
+ 
+  .double {
+      grid-column: span 2;
+  }
+}
