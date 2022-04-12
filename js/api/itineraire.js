@@ -1,5 +1,5 @@
 const url = "http://51.137.57.138:1337";
-const cartel = "/api/cartels/";
+const liencartel = "/api/cartels";
 const recupAll = "?populate=*";
 const section = document.querySelector("section.cartels");
 var map = L.map('map').setView([50.62925, 3.057256], 9);
@@ -35,7 +35,7 @@ function printArticle(value) {
     for (let cartel of value.data) {
 
         article = document.createElement("article");
-        article.setAttribute("data-id", "etape" + cartel.id);
+
 
         //// Creation contenu gauche
         figure = document.createElement("figure");
@@ -123,7 +123,7 @@ function printArticle(value) {
                 weight: 5,
                 lineCap: 'round'
             }
-        }).on('mouseover', function (e) {
+        }).on('mouseover mousemove', function (e) {
             this.setStyle({
                 color: '#e5b9d5'
             })
@@ -136,7 +136,7 @@ function printArticle(value) {
             this.setStyle({
                 color: '#00246B'
             }).on('click', function (e) {
-                document.location.href = "etape.html?etape=" + cartel.id ;
+                document.location.href = "etape.html?etape=" + cartel.id;
             })
         }).on('loaded', function (e) {
             map.fitBounds(e.target.getBounds());
@@ -160,12 +160,12 @@ function printArticle(value) {
             document.location.href = "etape.html?etape=" + cartel.id;
         });
 
-}
+    }
 
 }
 
 
-fetch(url + cartel + recupAll)
+fetch(url + liencartel + recupAll)
     .then(response => response.json())
     .then(function (response) {
         response.data.sort(function (a, b) {

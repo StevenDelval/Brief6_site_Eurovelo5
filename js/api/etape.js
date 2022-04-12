@@ -1,13 +1,23 @@
+/// Declaration variable
 const url = "http://51.137.57.138:1337";
-const cartel = "/api/cartels/";
+const liencartel = "/api/cartels";
 const recupAll = "?populate=*";
-const section = document.querySelector("section.cartels");
-var map = L.map('map').setView([50.62925, 3.057256], 9);
+const section = document.querySelector("section.etape");
+var map = L.map('map').setView([50.62925, 3.057256], 10);
+
+var customOptions =
+{
+    'className': 'popupCustom'
+}
+let mapEtape = [];
+let popup = [];
 /// creation map
 var Stadia_OSMBright = L.tileLayer('https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}{r}.png', {
     maxZoom: 20,
     attribution: '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
 }).addTo(map);
+
+
 
 // URL to your GPX file or the GPX itself
 //  Ajout Gpx //
@@ -23,7 +33,7 @@ var liengpx = ["../gpx/calais-ardres.gpx",
     "../gpx/lens-don.gpx",
     "../gpx/don-lille.gpx",
     "../gpx/lille-wattrelos.gpx"];
-
+/// fonction recup parametre url
 function $_GET(param) {
     var vars = {};
     window.location.href.replace(location.hash, '').replace(
@@ -39,42 +49,36 @@ function $_GET(param) {
     return vars;
 }
 
-var customOptions =
-{
-    'className': 'popupCustom'
-}
-let mapEtape = [];
-let popup = [];
 
-function printArticle(value) {
+
+function printEtape(response,numEtape) {
+    value=response[numEtape-1]
 
 
     article = document.createElement("article");
-    article.setAttribute("data-id", "etape" + value.id);
 
-    //// Creation contenu gauche
-    figure = document.createElement("figure");
+    //////Etape
+    etape = document.createElement("h2");
 
-    imgetape = document.createElement("img");
-    imgetape.src = url + value.attributes.imgetape.data.attributes.formats.small.url;
-    imgetape.classList.add("imgEtape");
-    figure.appendChild(imgetape);
+    ///Lien retour
+    a = document.createElement("a");
+    a.classList.add("back");
+    a.href = "itineraire.html";
+    arrow = document.createElement("i");
+    arrow.classList.add("fa-solid");
+    arrow.classList.add("fa-arrow-left-long");
+    a.appendChild(arrow);
+    etape.appendChild(a);
 
-    figcaption = document.createElement("figcaption");
-    figcaption.innerText = value.attributes.km + " Km";
-    figure.appendChild(figcaption);
-
-    article.appendChild(figure);
-
-    //// Creation contenu droit
-    divContenu = document.createElement("div");
-    divContenu.classList.add("contenu");
-
-    ////// Presentation
+    span = document.createElement("span")
+    span.innerText = value.attributes.etape;
+    etape.appendChild(span)
+    article.appendChild(etape);
+    ///// Presentation
     divPresentation = document.createElement("div");
     divPresentation.classList.add("presentation");
     presentation = document.createElement("p");
-    presentation.innerText = value.attributes.presentation
+    presentation.innerText = value.attributes.presentation;
     divPresentation.appendChild(presentation);
     lien = document.createElement("a");
     lien.classList.add("carnet")
@@ -84,16 +88,50 @@ function printArticle(value) {
     lien.setAttribute("href", "#");
     lien.appendChild(heart);
     divPresentation.appendChild(lien);
-    divContenu.appendChild(divPresentation);
+    article.appendChild(divPresentation);
+
+    // Parcour
+    divParcour = document.createElement("div");
+    divParcour.classList.add("parcour");
+
+    //// Distance
+    divDistance = document.createElement("div");
+    divDistance.classList.add("distance");
+
+    circle = document.createElement("i");
+    circle.classList.add("fa-solid");
+    circle.classList.add("fa-circle");
+    divDistance.appendChild(circle);
+
+    dis = document.createElement("p");
+    dis.innerText = value.attributes.km + " Km";
+    divDistance.appendChild(dis);
+
+    divParcour.appendChild(divDistance);
+
+    ////duree
+    divDuree = document.createElement("div");
+    divDuree.classList.add("duree");
+
+    time = document.createElement("i");
+    time.classList.add("fa-solid");
+    time.classList.add("fa-clock");
+    divDuree.appendChild(time);
+
+    temp = document.createElement("p");
+    temp.innerText = value.attributes.duree;
+    divDuree.appendChild(temp);
+
+    divParcour.appendChild(divDuree);
 
     ////// Niveau
     divNiv = document.createElement("div");
 
 
-    circle = document.createElement("i");
-    circle.classList.add("fa-solid");
-    circle.classList.add("fa-circle");
-    divNiv.appendChild(circle);
+    circleA = document.createElement("i");
+    circleA.classList.add("fa-solid");
+    circleA.classList.add("fa-circle");
+    divNiv.appendChild(circleA);
 
 
     textNiv = document.createElement("p");
@@ -116,71 +154,116 @@ function printArticle(value) {
     }
 
     divNiv.appendChild(textNiv);
-    divContenu.appendChild(divNiv);
+    divParcour.appendChild(divNiv);
 
-    //////Etape
-    etape = document.createElement("h2");
-    etape.innerText = value.attributes.etape
-    divContenu.appendChild(etape)
+    article.appendChild(divParcour);
+
+
+
+
+
+    //// Creation contenu image
+    figure = document.createElement("figure");
+
+    imgetape = document.createElement("img");
+    imgetape.src = url + value.attributes.imgetape.data.attributes.formats.small.url;
+    imgetape.classList.add("imgEtape");
+    figure.appendChild(imgetape);
+    article.appendChild(figure);
 
     ////// Description
     description = document.createElement("p");
     description.classList.add("description");
     description.innerText = value.attributes.description;
-    divContenu.appendChild(description);
+    article.appendChild(description);
 
-    article.appendChild(divContenu);
 
-    popup[0] = L.popup(customOptions);
-    mapEtape[0] = new L.GPX(liengpx[value.id -1], {
-        polyline_options: {
-            color: '#00246B',
-            weight: 5,
-            lineCap: 'round'
+
+
+    // Ajout tracer map
+
+    for (let gpxetape in liengpx) {
+        gpxetape = parseInt(gpxetape);
+        if (gpxetape == value.id - 1) {
+            popup[gpxetape] = L.popup(customOptions);
+            mapEtape[gpxetape] = new L.GPX(liengpx[gpxetape], {
+                polyline_options: {
+                    color: '#e5b9d5',
+                    weight: 5,
+                    lineCap: 'round'
+                }
+            }).on('mouseover mousemove', function (e) {
+                this.setStyle({
+                    color: '#e5b9d5'
+                })
+                popup[gpxetape]
+                    .setLatLng(e.latlng)
+                    .setContent("<h3>" + value.attributes.etape.toString() + "</h3>")
+                    .openOn(map);
+            }).on('mouseout', function (e) {
+                map.closePopup();
+                this.setStyle({
+                    color: '#e5b9d5'
+                }).on('click', function (e) {
+                    document.location.href = "etape.html?etape=" + parseInt(gpxetape + 1);
+                })
+            }).on('loaded', function (e) {
+                map.fitBounds(e.target.getBounds());
+            }).addTo(map);
+
+            var el = L.control.elevation();
+            el.addTo(map);
+            var g = new L.GPX(liengpx[gpxetape], { async: true });
+            g.on("addline", function (e) {
+                e.line.options.color = "#e5b9d5";
+                el.addData(e.line);
+            });
+           /* .on('mouseover mousemove',(e)=>{
+                popup[gpxetape]
+                .setLatLng(e.latlng)
+                .openOn(map);
+            }) */
+        } else {
+            popup[gpxetape] = L.popup(customOptions);
+            mapEtape[gpxetape] = new L.GPX(liengpx[gpxetape], {
+                polyline_options: {
+                    color: '#6f6f6f',
+                    weight: 5,
+                    lineCap: 'round'
+                }
+            }).on('mouseover mousemove', function (e) {
+                this.setStyle({
+                    color: '#00246B'
+                })
+                popup[gpxetape]
+                    .setLatLng(e.latlng)
+                    .setContent("<h3>" + response[gpxetape].attributes.etape.toString() + "</h3>")
+                    .openOn(map);
+            }).on('mouseout', function (e) {
+                map.closePopup();
+                this.setStyle({
+                    color: '#6f6f6f'
+                }).on('click', function (e) {
+                    document.location.href = "etape.html?etape=" + parseInt(gpxetape + 1);
+                })
+            }).on('loaded', function (e) {
+                map.fitBounds(e.target.getBounds());
+            }).addTo(map);
+
         }
-    }).on('mouseover', function (e) {
-        this.setStyle({
-            color: '#e5b9d5'
-        })
-        popup[0]
-            .setLatLng(e.latlng)
-            .setContent("<h3>" + value.attributes.etape.toString() + "</h3>")
-            .openOn(map);
-    }).on('mouseout', function (e) {
-        map.closePopup();
-        this.setStyle({
-            color: '#00246B'
-        }).on('click', function (e) {
-            document.location.href = "etape.html?etape=" +value.id;
-        })
-    }).on('loaded', function (e) {
-        map.fitBounds(e.target.getBounds());
-    }).addTo(map);
+    }
+
 
 
     //Ajout de l'article a la section
     section.appendChild(article);
-
-    article.addEventListener('mouseover', () => {
-        mapEtape[0].setStyle({
-            color: '#e5b9d5'
-        });
-    });
-    article.addEventListener('mouseout', () => {
-        mapEtape[0].setStyle({
-            color: '#00246B'
-        });
-    });
-    article.addEventListener('click', () => {
-        document.location.href = "itineraire.html";
-    });
 
 }
 
 
 
 
-fetch(url + cartel + recupAll)
+fetch(url + liencartel + recupAll)
     .then(response => response.json())
     .then(function (response) {
         response.data.sort(function (a, b) {
@@ -188,9 +271,7 @@ fetch(url + cartel + recupAll)
         })
 
         numEtape = $_GET('etape');
-        console.log(numEtape, '/', response.data[numEtape-1])
-
-        printArticle(response.data[numEtape-1]);
+        printEtape(response.data,numEtape);
 
 
     })
