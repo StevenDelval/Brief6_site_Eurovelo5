@@ -110,7 +110,10 @@
                     left: 5px;
                 }
             }
-
+            .elevation{
+                display: flex;
+                justify-content: center;
+            }
             .description {
                 text-align: justify;
                 padding-left: 20px;
