@@ -1,5 +1,7 @@
 #info {
+    margin-top: 12%;
   main {
+    
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -22,11 +24,19 @@
   }
   h2 {
     color: hsl(240, 91%, 14%);
+    text-align: center;
   }
   p {
-    font-size: 24px;
+      border:white solid;
+      margin-left: 30%;
+      width: 40%;
+      margin-top: 2%;
+     text-align: center;
+     font-size: 20px;
+     padding:4%
   }
   img {
+      
     height: 100%;
     width: 100%;
   }
@@ -40,4 +50,9 @@
   .double {
       grid-column: span 2;
   }
+}
+.ulis{
+    display:flex;
+    text-align: center;
+    align-items: center;
 }
