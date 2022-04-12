@@ -17,17 +17,7 @@ var Stadia_OSMBright = L.tileLayer('https://tiles.stadiamaps.com/tiles/osm_brigh
     attribution: '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
 }).addTo(map);
 
-//all used options are the default values
 
-var el = L.control.elevation();
-el.addTo(map);
-var g=new L.GPX("../gpx/calais-ardres.gpx", {async: true});
-g.on("addline",function(e){
-	el.addData(e.line);
-});
-g.addTo(map);
-// reset data and display
-el.clear();
 
 // URL to your GPX file or the GPX itself
 //  Ajout Gpx //
