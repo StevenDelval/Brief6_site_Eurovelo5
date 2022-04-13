@@ -18,7 +18,7 @@ L’organisme vous demande de respecter la charte graphique des sites des autres
 ## Critères de performance
 
 
-# Technologie web :
+Technologie web :
 
 
 Passage au validateur sans erreurs.
@@ -29,7 +29,7 @@ Javascript sans erreurs.
 Utilisation de Strapi pour le backend et d'une api REST
 
 
-# Présentation orale :
+ Présentation orale :
 
 
 Présentation de ce qui a été réalisé (Telle que vous la feriez à un client)
