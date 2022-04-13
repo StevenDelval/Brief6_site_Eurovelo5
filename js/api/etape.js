@@ -244,8 +244,32 @@ function printEtape(response, numEtape) {
     figure.appendChild(imgetape);
     article.appendChild(figure);
 
-    article.appendChild(document.querySelector(".elevation"));
 
+
+    // info ville
+    divVil = document.createElement("div");
+    divVil.classList.add("villes");
+
+    depart = document.createElement("p");
+    depart.innerText = value.attributes.depart;
+    divVil.appendChild(depart);
+
+    echange = document.createElement("i");
+    echange.classList.add("fa-solid");
+    echange.classList.add("fa-arrow-right-arrow-left");
+    divVil.appendChild(echange);
+
+    arrivee = document.createElement("p");
+    arrivee.innerText = value.attributes.arrivee;
+    divVil.appendChild(arrivee);
+
+    echange.addEventListener("click" , (e)=>{
+        divVil.classList.toggle("active")
+    });
+
+    article.appendChild(divVil);
+    /// ajout elevation
+    article.appendChild(document.querySelector(".elevation"));
     ////// Description
     description = document.createElement("p");
     description.classList.add("description");
@@ -255,9 +279,9 @@ function printEtape(response, numEtape) {
 
 
 
-window.addEventListener('resize',()=>{
-    location.reload()
-})
+    window.addEventListener('resize', () => {
+        location.reload()
+    })
 
 
 

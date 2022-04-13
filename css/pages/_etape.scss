@@ -110,6 +110,34 @@
                     left: 5px;
                 }
             }
+
+            .villes{
+                padding: 0 10px;
+                p{
+                    width: 100%;
+                    max-width: 200px;
+                }
+                i{
+                    cursor: pointer;
+                }
+                display: flex;
+                justify-content: space-between;
+                :first-child{
+                    text-align: left;
+                }
+                :last-child{
+                    text-align: right;
+                }
+            }
+            .villes.active{
+                flex-flow: row-reverse;
+                :first-child{
+                    text-align: right;
+                }
+                :last-child{
+                    text-align: left;
+                }
+            }
             .elevation{
                 display: flex;
                 justify-content: center;
