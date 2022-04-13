@@ -1,3 +1,18 @@
+/// fonction recup parametre url
+function $_GET(param) {
+    var vars = {};
+    window.location.href.replace(location.hash, '').replace(
+        /[?&]+([^=&]+)=?([^&]*)?/gi, // regexp
+        function (m, key, value) { // callback
+            vars[key] = value !== undefined ? value : '';
+        }
+    );
+
+    if (param) {
+        return vars[param] ? vars[param] : null;
+    }
+    return vars;
+}
 /// Declaration variable
 const url = "http://51.137.57.138:1337";
 const liencartel = "/api/cartels";
@@ -5,7 +20,52 @@ const recupAll = "?populate=*";
 const section = document.querySelector("section.etape");
 
 /// creation map
-var map = L.map('map').setView([50.62925, 3.057256], 9);
+
+switch ($_GET('etape')) {
+    case "1":
+        var map = L.map('map').setView([50.911651, 1.916826], 10);
+        console.log("ok")
+        break;
+    case 2:
+        var map = L.map('map').setView([50.62925, 3.057256], 10);
+        break;
+
+    case 3:
+        var map = L.map('map').setView([50.62925, 3.057256], 10);
+        break;
+    case 4:
+        var map = L.map('map').setView([50.62925, 3.057256], 10);
+        break;
+    case 5:
+        var map = L.map('map').setView([50.62925, 3.057256], 10);
+        break;
+
+    case 6:
+        var map = L.map('map').setView([50.62925, 3.057256], 10);
+        break;
+    case 7:
+        var map = L.map('map').setView([50.62925, 3.057256], 10);
+        break;
+    case 8:
+        var map = L.map('map').setView([50.62925, 3.057256], 10);
+        break;
+
+    case 9:
+        var map = L.map('map').setView([50.62925, 3.057256], 10);
+        break;
+    case 10:
+        var map = L.map('map').setView([50.62925, 3.057256], 10);
+        break;
+    case 11:
+        var map = L.map('map').setView([50.62925, 3.057256], 10);
+        break;
+
+    case 12:
+        var map = L.map('map').setView([50.62925, 3.057256], 10);
+        break;
+    default:
+        console.log('erreur',$_GET('etape'));
+}
 
 var Stadia_OSMBright = L.tileLayer('https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}{r}.png', {
     maxZoom: 20,
@@ -33,21 +93,6 @@ var liengpx = ["../gpx/calais-ardres.gpx",
     "../gpx/lens-don.gpx",
     "../gpx/don-lille.gpx",
     "../gpx/lille-wattrelos.gpx"];
-/// fonction recup parametre url
-function $_GET(param) {
-    var vars = {};
-    window.location.href.replace(location.hash, '').replace(
-        /[?&]+([^=&]+)=?([^&]*)?/gi, // regexp
-        function (m, key, value) { // callback
-            vars[key] = value !== undefined ? value : '';
-        }
-    );
-
-    if (param) {
-        return vars[param] ? vars[param] : null;
-    }
-    return vars;
-}
 
 
 
@@ -263,7 +308,7 @@ function printEtape(response, numEtape) {
     arrivee.innerText = value.attributes.arrivee;
     divVil.appendChild(arrivee);
 
-    echange.addEventListener("click" , (e)=>{
+    echange.addEventListener("click", (e) => {
         divVil.classList.toggle("active")
     });
 
