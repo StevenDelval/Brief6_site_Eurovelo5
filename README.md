@@ -1,6 +1,6 @@
 ### Brief6_Gang_des_cyclistes_du_dimanche
 
-##Contexte du projet
+## Contexte du projet
 
 
 Porté par la Fédération européenne des cyclistes (ECF), le projet EuroVelo comporte 17 itinéraires cyclables européens répartis sur tout le continent. Les 17 itinéraires EuroVelo représentent 91 500 km (en tenant compte des portions d’itinéraires dupliqués), dont 45 000 km sont déjà développés et traversent 42 pays. La France est concernée par 10 EuroVelo, soit 8 806 km, réalisés à 92,5 % au 1er janvier 2021.
@@ -15,10 +15,10 @@ Vous avez été contacté par l’ECF afin de réaliser le site de présentation
 L’organisme vous demande de respecter la charte graphique des sites des autres portions françaises que sont : La Vélodyssée (Ev1), la Scandibérique (EV3) ou encore la Vélomaritime (EV4) et vous fournit les ressources graphiques suivantes : logos, photographies et contenu des différentes parties du site.
 
 
-##Critères de performance
+## Critères de performance
 
 
-#Technologie web :
+# Technologie web :
 
 
 Passage au validateur sans erreurs.
@@ -29,7 +29,7 @@ Javascript sans erreurs.
 Utilisation de Strapi pour le backend et d'une api REST
 
 
-#Présentation orale :
+# Présentation orale :
 
 
 Présentation de ce qui a été réalisé (Telle que vous la feriez à un client)
