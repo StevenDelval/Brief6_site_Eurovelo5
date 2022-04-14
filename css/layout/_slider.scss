@@ -4,10 +4,14 @@
     font-size: calc(3vmin + 10px);
     
 }
+
 .titre-haut {
     
     position: absolute;
-    display:block;
+    display:flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
     top: 30%;
     bottom: 300px;
     width: 100%;
@@ -15,9 +19,11 @@
     color: $color-texte-clair;
     transform: translate(0,0);
     font-size: 1,4em;
+    background:  rgba(0, 0, 0, 0.35) ;
+    height: 250px;
 }
 .titre-bas {
-    position: absolute;
+    
     display:block;
     width: 100%;
     color: white;

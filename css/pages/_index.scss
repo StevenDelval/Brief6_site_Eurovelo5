@@ -54,8 +54,12 @@ body { background: #fff }
   max-width: fit-content;
   margin: 0 auto;
   margin-bottom: 2%;
+  
   .actu-img {
     /*background-image: url(https://media.eurovelo.com/images/2a/64/125_orig_cover1920.jpg);*/
+    display: flex;
+  flex-flow: column;
+  align-items: center;
     .range-cartels {
       display: flex;
       gap: 20px;
@@ -79,11 +83,13 @@ body { background: #fff }
   }
   .actu{
     display: flex;
-    display: flex;
     flex-flow: column;
     align-items: center;
     .titre-soustitre-pres{
       width: 75%;
+    }
+    .cta-ombre{
+      margin: 10px 0;
     }
   }
 }
