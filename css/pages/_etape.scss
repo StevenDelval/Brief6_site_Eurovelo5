@@ -144,8 +144,12 @@
             }
             .description {
                 text-align: justify;
-                padding-left: 20px;
-                padding-right: 10px;
+                display: flex;
+                flex-flow: column;
+                gap: 30px;
+
+                padding: 0 20px;
+
             }
 
 

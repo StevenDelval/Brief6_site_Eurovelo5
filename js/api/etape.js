@@ -324,9 +324,19 @@ function printEtape(response, numEtape) {
     /// ajout elevation
     article.appendChild(document.querySelector(".elevation"));
     ////// Description
-    description = document.createElement("p");
+
+
+    description = document.createElement("div");
     description.classList.add("description");
-    description.innerText = value.attributes.description;
+
+    titre = document.createElement("h3");
+    titre.innerText = value.attributes.titre;
+    description.appendChild(titre);
+
+    pdescri = document.createElement("p");
+    pdescri.innerText = value.attributes.description;
+    description.appendChild(pdescri);
+
     article.appendChild(description);
 
 
