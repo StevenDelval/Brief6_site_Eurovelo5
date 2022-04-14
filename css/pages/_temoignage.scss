@@ -27,25 +27,28 @@
         border-radius: 14px;
         max-width: 335px;
         max-height: 220px;
-        padding: 10px;
+        padding: 10px 10px 10px 0;
+
         list-style: none;
         display: flex;
         flex-direction: row;
         gap: 20px;
         float: right;
+        .blanc{
+            color: rgb(122, 121, 121);
+        } 
+        .jaune{
+            color: rgb(213, 160, 37);
+        }
     }
     p {
         margin-top: 4%;
         text-align: center;
     }
-    ul {
-        li {
-            color: rgb(213, 160, 37);
-        }
-    }
-    .toto {
-        padding: 1%;
-    }
+    
+       
+    
+ 
 }
 .boutontab {
 background-color: white;
