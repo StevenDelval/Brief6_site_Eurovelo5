@@ -123,6 +123,13 @@
                 color: $color-texte-fonce;
             }
         }
+
+    }
+
+    section.cartels {
+        article:last-child {
+            margin-bottom: 40px;
+        }
     }
 
 

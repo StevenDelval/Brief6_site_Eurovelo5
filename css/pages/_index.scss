@@ -66,3 +66,24 @@ body { background: #fff }
     }
   }
 }
+
+@media screen and (max-width:675px) {
+
+  .accueil-velo{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    .titre-soustitre-pres{
+      width: 75%;
+    }
+  }
+  .actu{
+    display: flex;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    .titre-soustitre-pres{
+      width: 75%;
+    }
+  }
+}

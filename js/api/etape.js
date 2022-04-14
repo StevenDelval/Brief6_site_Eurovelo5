@@ -23,44 +23,44 @@ const section = document.querySelector("section.etape");
 
 switch ($_GET('etape')) {
     case "1":
-        var map = L.map('map').setView([50.911651, 1.916826], 10);
+        var map = L.map('map').setView([50.911651, 1.916826], 11);
         console.log("ok")
         break;
     case "2":
-        var map = L.map('map').setView([50.8442935, 2.093722], 10);
+        var map = L.map('map').setView([50.8442935, 2.093722], 11);
         break;
 
     case "3":
-        var map = L.map('map').setView([50.7927515, 2.2378635], 10);
+        var map = L.map('map').setView([50.7927515, 2.2378635], 11);
         break;
     case "4":
-        var map = L.map('map').setView([50.698865, 2.3364895], 10);
+        var map = L.map('map').setView([50.698865, 2.3364895], 11);
         break;
     case "5":
-        var map = L.map('map').setView([50.6342025, 2.4784015], 10);
+        var map = L.map('map').setView([50.6342025, 2.4784015], 11);
         break;
 
     case "6":
-        var map = L.map('map').setView([50.572714, 2.596145], 10);
+        var map = L.map('map').setView([50.572714, 2.596145], 11);
         break;
     case "7":
-        var map = L.map('map').setView([50.4877470506626, 2.61091588876953], 10);
+        var map = L.map('map').setView([50.4877470506626, 2.61091588876953], 11);
         break;
     case "8":
-        var map = L.map('map').setView([50.4262547, 2.66713895], 10);
+        var map = L.map('map').setView([50.4262547, 2.66713895], 11);
         break;
 
     case "9":
-        var map = L.map('map').setView([50.4140043, 2.78623805], 10);
+        var map = L.map('map').setView([50.4140043, 2.78623805], 11);
         break;
     case "10":
-        var map = L.map('map').setView([50.4875647550378, 2.86976085518646], 10);
+        var map = L.map('map').setView([50.4875647550378, 2.86976085518646], 11);
         break;
     case "11":
-        var map = L.map('map').setView([50.6099415, 2.9910585], 10);
+        var map = L.map('map').setView([50.6099415, 2.9910585], 11);
         break;
     case "12":
-        var map = L.map('map').setView([50.6824235, 3.1582875], 10);
+        var map = L.map('map').setView([50.6824235, 3.1582875], 11);
         break;
     default:
         var map = L.map('map').setView([50.829171, 2.5541365], 10);

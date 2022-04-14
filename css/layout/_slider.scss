@@ -82,6 +82,7 @@
     line-height: 130%;
     margin: 0 auto;
     .map-page2{
+        max-width: 480px;
         img{
             width: 100%;
         }
@@ -122,6 +123,18 @@
   }
 /*------- media query page slider -----*/
 
+@media screen and (max-width: 1180px)  {
+
+    body .container-page2 {
+        display: flex;
+        flex-direction:column-reverse;
+        max-width: 80%;
+        gap: 20px;
+        .map-page2{
+            max-width: 100%;
+            
+    }
+}}
 @media screen and (max-width: 675px)  {
     .field {
         .input {
@@ -144,9 +157,9 @@
         color: white;
         transform: translate(0,0);
     }   
-}
 
-@media screen and (max-width: 675px)  {
+
+
     .container-page2 {
         display: flex;
         flex-direction:column-reverse;
