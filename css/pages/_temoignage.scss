@@ -7,12 +7,14 @@
     max-width: 1400px;
     margin: 90px auto;
     padding: 10px;
-    border: 1px solid black;
-    .tab {
+    article{
+        
         border: 1px solid black;
         border-radius: 15px;
         overflow: hidden;
+
     }
+    
 
     .boutontab {
         max-width: 170px;
@@ -38,6 +40,7 @@
         flex-direction: row;
         gap: 20px;
         float: right;
+        border: 1px solid black;
     }
     p {
         margin-top: 4%;
