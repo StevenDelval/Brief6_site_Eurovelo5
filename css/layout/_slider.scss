@@ -78,14 +78,14 @@
     font-size: 1.4em;
     line-height: 130%;
     margin: 0 auto;
+    .map-page2{
+        img{
+            width: 100%;
+        }
+    }
 }
 
-.container-page2{ 
-    display: flex;
-    justify-content: center;
-    justify-content: space-around;
-    flex-direction: row;
-}
+
 
 .button-lien {
     width: 500px;

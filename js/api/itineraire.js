@@ -2,7 +2,7 @@ const url = "http://51.137.57.138:1337";
 const liencartel = "/api/cartels";
 const recupAll = "?populate=*";
 const section = document.querySelector("section.cartels");
-var map = L.map('map').setView([50.7184154968135, 2.657328312014152], 9);
+var map = L.map('map').setView([50.829171, 2.5541365], 9);
 /// creation map
 var Stadia_OSMBright = L.tileLayer('https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}{r}.png', {
     maxZoom: 20,
