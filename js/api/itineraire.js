@@ -41,6 +41,7 @@ function printArticle(value) {
         figure = document.createElement("figure");
 
         imgetape = document.createElement("img");
+        
         imgetape.src = url + cartel.attributes.imgetape.data.attributes.formats.small.url;
         imgetape.classList.add("imgEtape");
         figure.appendChild(imgetape);

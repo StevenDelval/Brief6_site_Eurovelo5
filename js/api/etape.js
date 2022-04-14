@@ -292,7 +292,7 @@ function printEtape(response, numEtape) {
     figure = document.createElement("figure");
 
     imgetape = document.createElement("img");
-    imgetape.src = url + value.attributes.imgetape.data.attributes.formats.small.url;
+    imgetape.src = url + value.attributes.imgetape.data.attributes.formats.large.url;
     imgetape.classList.add("imgEtape");
     figure.appendChild(imgetape);
     article.appendChild(figure);
