@@ -18,21 +18,21 @@ body { background: #fff }
   display: flex;
   gap: 20px;
   i{
-      color: $rose;
-      width: 30px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    color: $rose;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  h2{
+    font-size: 32px;
+    font-weight: 500;
   }
 }
 
 .accueil-velo {
   max-width: 100% ;
   font-family: Arial, Helvetica, sans-serif;
-  h2{
-      font-size: 32px;
-      font-weight: 500;
-  }
 }
 
 
