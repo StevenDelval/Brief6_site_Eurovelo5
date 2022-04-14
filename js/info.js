@@ -12,7 +12,7 @@ function printinfo(data){
         let eltArticle = document.createElement("article");
         main.appendChild(eltArticle);
         eltArticle.classList.add("info_titre");
-        if (compteur === 1 ||compteur === 3 || compteur === 8 ) {
+        if (compteur === 0 ||compteur === 3 || compteur === 8 ) {
             eltArticle.classList.add("double");
         } 
         let titre = document.createElement("h1");
