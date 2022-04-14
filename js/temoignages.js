@@ -16,11 +16,7 @@ function printtemoignage(data) {
         let name = document.createElement("h3");
         name.innerText = article.attributes.name;
         main.classList.add("ui");
-        eltarticle.appendChild(name);
-        let date = document.createElement("h5");
-        date.innerText = article.attributes.date;
-        eltarticle.appendChild(date);
-
+        
         let etoile = document.createElement("ul");
         etoile.classList.add("notation-avis");
         //etoile.innerText = article.attributes.etoile;
@@ -47,6 +43,12 @@ function printtemoignage(data) {
             }
            
         }
+        eltarticle.appendChild(name);
+        let date = document.createElement("h5");
+        date.innerText = article.attributes.date;
+        eltarticle.appendChild(date);
+
+      
 
         let resume = document.createElement("p");
         main.classList.add("notation-avis");
@@ -54,8 +56,8 @@ function printtemoignage(data) {
         eltarticle.appendChild(resume);
 
         let bouton = document.createElement("button");
-        main.classList.add("boutontab");
-        bouton.innerText = article.attributes.bouton;
+        bouton.classList.add("boutontab");
+        bouton.innerText = 'Lire la suite...'
         eltarticle.appendChild(bouton);
     }
 
