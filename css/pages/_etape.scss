@@ -1,0 +1,224 @@
+#pagetape {
+    height: 100vh;
+    overflow: hidden;
+}
+
+#etape {
+    display: flex;
+    height: calc(100% - 71px);
+    margin-top: 71px;
+
+    section.etape {
+        width: 50%;
+        overflow-y: scroll;
+
+        article {
+            position: relative;
+            margin-top: 10px;
+            display: flex;
+            flex-flow: column;
+            gap: 15px;
+
+
+            h2 {
+                font-size: 32px;
+                .back {
+                    margin-right: 10px;
+
+                    text-decoration: none;
+
+                    .fa-arrow-left-long {
+                        
+                        color: black;
+                    }
+                }
+
+                padding: 0 0 0 20px;
+            }
+
+
+            .presentation {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                background-color: $rose;
+                border-radius: 6px;
+                padding: 0 10px;
+
+                .fa-heart {
+                    color: $color-texte-fonce;
+                    font-size: 24px;
+                }
+            }
+
+            .parcour {
+                display: flex;
+                justify-content: center;
+                gap: 20px;
+
+                .distance {
+                    display: flex;
+                    gap: 5px;
+
+                    i {
+                        font-size: 16px;
+
+                    }
+                }
+
+                .duree {
+                    display: flex;
+                    gap: 5px;
+
+                    i {
+                        font-size: 16px;
+                    }
+                }
+
+                .niveau-deb {
+                    color: $vert-facile;
+                    @include niveau;
+                }
+
+                .niveau-moy {
+                    color: $bleu-moyen;
+                    @include niveau;
+                }
+
+                .niveau-dif {
+                    color: $rouge-difficile;
+                    @include niveau;
+                }
+            }
+
+            figure {
+                width: 100%;
+                height: 320px;
+                overflow: hidden;
+
+                .imgEtape {
+                    width: 100%;
+                    height: 100%;
+                }
+
+                figcaption {
+                    background-color: $color-texte-clair;
+                    text-align: center;
+                    border-radius: 6px;
+                    padding: 2px;
+                    top: 10px;
+                    left: 5px;
+                }
+            }
+
+            .villes{
+                padding: 0 10px;
+                p{
+                    width: 100%;
+                    max-width: 200px;
+                }
+                i{
+                    cursor: pointer;
+                }
+                display: flex;
+                justify-content: space-between;
+                :first-child{
+                    text-align: left;
+                }
+                :last-child{
+                    text-align: right;
+                }
+            }
+            .villes.active{
+                flex-flow: row-reverse;
+                :first-child{
+                    text-align: right;
+                }
+                :last-child{
+                    text-align: left;
+                }
+            }
+            .elevation{
+                display: flex;
+                justify-content: center;
+            }
+            .description {
+                text-align: justify;
+                padding-left: 20px;
+                padding-right: 10px;
+            }
+
+
+
+
+
+        }
+
+
+    }
+
+
+
+    #map {
+        width: 50%;
+    }
+    button{
+        display: none;
+    }
+}
+
+.popupCustom .leaflet-popup-tip,
+.popupCustom .leaflet-popup-content-wrapper {
+    background: #222;
+    opacity: 0.9;
+
+    h3 {
+        text-decoration: none;
+        color: white;
+    }
+}
+@media screen and (max-width:790px) {
+    #etape {
+        section.etape{
+            display: none;
+            width: 100%;
+        }
+
+        section.etape.active {
+
+            display: block;
+        }
+
+
+
+        #map {
+            display: none;
+            width: 100%;
+        }
+
+        #map.active {
+            display: block;
+        }
+
+        button {
+            position: fixed;
+            display: block;
+            z-index: 1001;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50%;
+            border-radius: 6px;
+            border: none;
+            background-color: $rose;
+
+            span {
+                display: none;
+            }
+
+            .active {
+                display: block;
+            }
+        }
+    }
+}

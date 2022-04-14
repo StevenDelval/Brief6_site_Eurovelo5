@@ -1,18 +1,13 @@
 <!DOCTYPE html>
-<html lang="fr">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/main.css">
-    <script src="https://kit.fontawesome.com/b0162d0160.js" crossorigin="anonymous"></script>
-    <title>Itinéraire</title>
+    <title>la velodyssee</title>
 </head>
-
-<body id="itineraire">
-
-    <!-- navbar -->
+<header>
     <nav>
       <div class="logos">
         <img src="img/logo-petit.png" alt="embleme" />
@@ -21,7 +16,7 @@
   
       <ul class="list-unstyled">
         <a id="link" href="#"><span id="burger"></span></a>
-        <li><a href="index.html">ACCEUIL</a></li>
+        <li><a href="index.html">ACCUEIL</a></li>
         <li><a href="itineraire.html">ITINÉRAIRE</a></li>
         <li><a href="temoignage.html">TÉMOIGNAGES</a></li>
         <li><a href="news.html">NEWS</a></li>
@@ -30,42 +25,19 @@
         <a href="https://www.instagram.com/ecfeurovelo/"><i class="fa-brands fa-instagram"></i></a></li>
       </ul>
     </nav>
-    <!-- fin de la navbar -->
+  </header>
+<body id="info">
+    <ul class="ulis">
+        <li>Aceuil  ></li>
+        <li>Infos pratiques</li>
+    </ul>
+    <h2> Infos Pratiques</h2>
+        <p>Conseils, astuces et recommandations pour bien préparer votre voyage sur l'itinéraire de La Vélodyssée.
+            </p>
 
-
-
-    <main id="pageItineraire">
-        <section id="contenu" class="cartels">
-            
-
-        </section>
-
-        <div id="map" class="active">
-
-        </div>
-
-
-        <button>
-          <span id="carte" >
-            Voir carte
-          </span>
-          <span id="text" class="active">Voir Etapes</span>    
-    
-        </button>
-
+    <main>
+        
     </main>
-
-    <script src="js/leaflet/leaflet.js"></script>
-    <script src="js/leaflet/leaflet-src.js"></script>
-    <script src="js/leaflet/leaflet-providers.js"></script>
-    <script src="js/leaflet-gpx-main/gpx.js"></script>
-    <script src="js/api/itineraire.js"></script>
-    <script src="js/switchcontenu.js"></script>
-    
-    
-    
-    <script src="js/nav.js"></script>
-
+    <script src="js/info.js"></script>
 </body>
-
 </html>

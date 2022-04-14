@@ -1,13 +1,82 @@
+/// fonction recup parametre url
+function $_GET(param) {
+    var vars = {};
+    window.location.href.replace(location.hash, '').replace(
+        /[?&]+([^=&]+)=?([^&]*)?/gi, // regexp
+        function (m, key, value) { // callback
+            vars[key] = value !== undefined ? value : '';
+        }
+    );
+
+    if (param) {
+        return vars[param] ? vars[param] : null;
+    }
+    return vars;
+}
+/// Declaration variable
 const url = "http://51.137.57.138:1337";
-const cartel = "/api/cartels/";
+const liencartel = "/api/cartels";
 const recupAll = "?populate=*";
-const section = document.querySelector("section.cartels");
-var map = L.map('map').setView([50.62925, 3.057256], 9);
+const section = document.querySelector("section.etape");
+
 /// creation map
+
+switch ($_GET('etape')) {
+    case "1":
+        var map = L.map('map').setView([50.911651, 1.916826], 10);
+        console.log("ok")
+        break;
+    case "2":
+        var map = L.map('map').setView([50.8442935, 2.093722], 10);
+        break;
+
+    case "3":
+        var map = L.map('map').setView([50.7927515, 2.2378635], 10);
+        break;
+    case "4":
+        var map = L.map('map').setView([50.698865, 2.3364895], 10);
+        break;
+    case "5":
+        var map = L.map('map').setView([50.6342025, 2.4784015], 10);
+        break;
+
+    case "6":
+        var map = L.map('map').setView([50.572714, 2.596145], 10);
+        break;
+    case "7":
+        var map = L.map('map').setView([50.4877470506626, 2.61091588876953], 10);
+        break;
+    case "8":
+        var map = L.map('map').setView([50.4262547, 2.66713895], 10);
+        break;
+
+    case "9":
+        var map = L.map('map').setView([50.4140043, 2.78623805], 10);
+        break;
+    case "10":
+        var map = L.map('map').setView([50.4875647550378, 2.86976085518646], 10);
+        break;
+    case "11":
+        var map = L.map('map').setView([50.6099415, 2.9910585], 10);
+        break;
+    case "12":
+        var map = L.map('map').setView([50.6824235, 3.1582875], 10);
+        break;
+    default:
+        var map = L.map('map').setView([50.829171, 2.5541365], 10);
+}
+
 var Stadia_OSMBright = L.tileLayer('https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}{r}.png', {
     maxZoom: 20,
     attribution: '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
 }).addTo(map);
+
+var customOptions =
+{
+    'className': 'popupCustom'
+}
+let mapEtape = [];
+let popup = [];
 
 // URL to your GPX file or the GPX itself
 //  Ajout Gpx //
@@ -24,76 +93,171 @@ var liengpx = ["../gpx/calais-ardres.gpx",
     "../gpx/don-lille.gpx",
     "../gpx/lille-wattrelos.gpx"];
 
-function $_GET(param) {
-    var vars = {};
-    window.location.href.replace(location.hash, '').replace(
-        /[?&]+([^=&]+)=?([^&]*)?/gi, // regexp
-        function (m, key, value) { // callback
-            vars[key] = value !== undefined ? value : '';
+
+
+function printEtape(response, numEtape) {
+    value = response[numEtape - 1]
+
+
+    // Ajout tracer map
+    for (let gpxetape in liengpx) {
+        gpxetape = parseInt(gpxetape);
+        if (gpxetape == value.id - 1) {
+            popup[gpxetape] = L.popup(customOptions);
+            mapEtape[gpxetape] = new L.GPX(liengpx[gpxetape], {
+                polyline_options: {
+                    color: '#e5b9d5',
+                    weight: 5,
+                    lineCap: 'round'
+                }
+            }).on('mouseover mousemove', function (e) {
+                this.setStyle({
+                    color: '#e5b9d5'
+                })
+                popup[gpxetape]
+                    .setLatLng(e.latlng)
+                    .setContent("<h3>" + value.attributes.etape.toString() + "</h3>")
+                    .openOn(map);
+            }).on('mouseout', function (e) {
+                map.closePopup();
+                this.setStyle({
+                    color: '#e5b9d5'
+                }).on('click', function (e) {
+                    document.location.href = "etape.html?etape=" + parseInt(gpxetape + 1);
+                })
+            }).on('loaded', function (e) {
+                map.fitBounds(e.target.getBounds());
+            }).addTo(map);
+            if (window.innerWidth <= 790) {
+                var el = L.control.elevation({
+                    width: 0.8 * window.innerWidth
+                });
+            } else {
+                var el = L.control.elevation({
+                    width: 0.45 * window.innerWidth
+                });
+            }
+            el.addTo(map);
+            var g = new L.GPX(liengpx[gpxetape], { async: true });
+            g.on("addline", function (e) {
+                e.line.options.color = "#e5b9d5";
+                el.addData(e.line);
+            });
+
+        } else {
+            popup[gpxetape] = L.popup(customOptions);
+            mapEtape[gpxetape] = new L.GPX(liengpx[gpxetape], {
+                polyline_options: {
+                    color: '#6f6f6f',
+                    weight: 5,
+                    lineCap: 'round'
+                }
+            }).on('mouseover mousemove', function (e) {
+                this.setStyle({
+                    color: '#00246B'
+                })
+                popup[gpxetape]
+                    .setLatLng(e.latlng)
+                    .setContent("<h3>" + response[gpxetape].attributes.etape.toString() + "</h3>")
+                    .openOn(map);
+            }).on('mouseout', function (e) {
+                map.closePopup();
+                this.setStyle({
+                    color: '#6f6f6f'
+                }).on('click', function (e) {
+                    document.location.href = "etape.html?etape=" + parseInt(gpxetape + 1);
+                })
+            }).on('loaded', function (e) {
+                map.fitBounds(e.target.getBounds());
+            }).addTo(map);
+
         }
-    );
-
-    if (param) {
-        return vars[param] ? vars[param] : null;
     }
-    return vars;
-}
-
-var customOptions =
-{
-    'className': 'popupCustom'
-}
-let mapEtape = [];
-let popup = [];
-
-function printArticle(value) {
-
-
     article = document.createElement("article");
-    article.setAttribute("data-id", "etape" + value.id);
+    //////Etape
+    etape = document.createElement("h2");
 
-    //// Creation contenu gauche
-    figure = document.createElement("figure");
+    ///Lien retour
+    a = document.createElement("a");
+    a.classList.add("back");
+    a.href = "itineraire.html";
 
-    imgetape = document.createElement("img");
-    imgetape.src = url + value.attributes.imgetape.data.attributes.formats.small.url;
-    imgetape.classList.add("imgEtape");
-    figure.appendChild(imgetape);
+    arrow = document.createElement("i");
+    arrow.classList.add("fa-solid");
+    arrow.classList.add("fa-arrow-left-long");
 
-    figcaption = document.createElement("figcaption");
-    figcaption.innerText = value.attributes.km + " Km";
-    figure.appendChild(figcaption);
+    a.appendChild(arrow);
+    etape.appendChild(a);
 
-    article.appendChild(figure);
+    /// titre etape
+    span = document.createElement("span")
+    span.innerText = value.attributes.etape;
 
-    //// Creation contenu droit
-    divContenu = document.createElement("div");
-    divContenu.classList.add("contenu");
-
-    ////// Presentation
+    etape.appendChild(span)
+    article.appendChild(etape);
+    ///// Presentation
     divPresentation = document.createElement("div");
     divPresentation.classList.add("presentation");
+
     presentation = document.createElement("p");
-    presentation.innerText = value.attributes.presentation
+    presentation.innerText = value.attributes.presentation;
     divPresentation.appendChild(presentation);
+
     lien = document.createElement("a");
-    lien.classList.add("carnet")
+    lien.classList.add("carnet");
+
     heart = document.createElement("i");
     heart.classList.add("fa-regular");
     heart.classList.add("fa-heart");
+
     lien.setAttribute("href", "#");
     lien.appendChild(heart);
+
     divPresentation.appendChild(lien);
-    divContenu.appendChild(divPresentation);
+    article.appendChild(divPresentation);
+
+    // Parcour
+    divParcour = document.createElement("div");
+    divParcour.classList.add("parcour");
+
+    //// Distance
+    divDistance = document.createElement("div");
+    divDistance.classList.add("distance");
+
+    circle = document.createElement("i");
+    circle.classList.add("fa-solid");
+    circle.classList.add("fa-road");
+    divDistance.appendChild(circle);
+
+    dis = document.createElement("p");
+    dis.innerText = value.attributes.km + " Km";
+    divDistance.appendChild(dis);
+
+    divParcour.appendChild(divDistance);
+
+    ////duree
+    divDuree = document.createElement("div");
+    divDuree.classList.add("duree");
+
+    time = document.createElement("i");
+    time.classList.add("fa-solid");
+    time.classList.add("fa-clock");
+    divDuree.appendChild(time);
+
+    temp = document.createElement("p");
+    temp.innerText = value.attributes.duree;
+    divDuree.appendChild(temp);
+
+    divParcour.appendChild(divDuree);
 
     ////// Niveau
     divNiv = document.createElement("div");
 
 
-    circle = document.createElement("i");
-    circle.classList.add("fa-solid");
-    circle.classList.add("fa-circle");
-    divNiv.appendChild(circle);
+    circleA = document.createElement("i");
+    circleA.classList.add("fa-solid");
+    circleA.classList.add("fa-circle");
+    divNiv.appendChild(circleA);
 
 
     textNiv = document.createElement("p");
@@ -116,71 +280,75 @@ function printArticle(value) {
     }
 
     divNiv.appendChild(textNiv);
-    divContenu.appendChild(divNiv);
+    divParcour.appendChild(divNiv);
 
-    //////Etape
-    etape = document.createElement("h2");
-    etape.innerText = value.attributes.etape
-    divContenu.appendChild(etape)
+    article.appendChild(divParcour);
 
+
+
+
+
+    //// Creation contenu image
+    figure = document.createElement("figure");
+
+    imgetape = document.createElement("img");
+    imgetape.src = url + value.attributes.imgetape.data.attributes.formats.small.url;
+    imgetape.classList.add("imgEtape");
+    figure.appendChild(imgetape);
+    article.appendChild(figure);
+
+
+
+    // info ville
+    divVil = document.createElement("div");
+    divVil.classList.add("villes");
+
+    depart = document.createElement("p");
+    depart.innerText = value.attributes.depart;
+    divVil.appendChild(depart);
+
+    echange = document.createElement("i");
+    echange.classList.add("fa-solid");
+    echange.classList.add("fa-arrow-right-arrow-left");
+    divVil.appendChild(echange);
+
+    arrivee = document.createElement("p");
+    arrivee.innerText = value.attributes.arrivee;
+    divVil.appendChild(arrivee);
+
+    echange.addEventListener("click", (e) => {
+        divVil.classList.toggle("active")
+    });
+
+    article.appendChild(divVil);
+    /// ajout elevation
+    article.appendChild(document.querySelector(".elevation"));
     ////// Description
     description = document.createElement("p");
     description.classList.add("description");
     description.innerText = value.attributes.description;
-    divContenu.appendChild(description);
+    article.appendChild(description);
 
-    article.appendChild(divContenu);
 
-    popup[0] = L.popup(customOptions);
-    mapEtape[0] = new L.GPX(liengpx[value.id -1], {
-        polyline_options: {
-            color: '#00246B',
-            weight: 5,
-            lineCap: 'round'
-        }
-    }).on('mouseover', function (e) {
-        this.setStyle({
-            color: '#e5b9d5'
-        })
-        popup[0]
-            .setLatLng(e.latlng)
-            .setContent("<h3>" + value.attributes.etape.toString() + "</h3>")
-            .openOn(map);
-    }).on('mouseout', function (e) {
-        map.closePopup();
-        this.setStyle({
-            color: '#00246B'
-        }).on('click', function (e) {
-            document.location.href = "etape.html?etape=" +value.id;
-        })
-    }).on('loaded', function (e) {
-        map.fitBounds(e.target.getBounds());
-    }).addTo(map);
+
+
+    window.addEventListener('resize', () => {
+        location.reload()
+    })
+
+
+
 
 
     //Ajout de l'article a la section
     section.appendChild(article);
-
-    article.addEventListener('mouseover', () => {
-        mapEtape[0].setStyle({
-            color: '#e5b9d5'
-        });
-    });
-    article.addEventListener('mouseout', () => {
-        mapEtape[0].setStyle({
-            color: '#00246B'
-        });
-    });
-    article.addEventListener('click', () => {
-        document.location.href = "itineraire.html";
-    });
 
 }
 
 
 
 
-fetch(url + cartel + recupAll)
+fetch(url + liencartel + recupAll)
     .then(response => response.json())
     .then(function (response) {
         response.data.sort(function (a, b) {
@@ -188,9 +356,9 @@ fetch(url + cartel + recupAll)
         })
 
         numEtape = $_GET('etape');
-        console.log(numEtape, '/', response.data[numEtape-1])
+        printEtape(response.data, numEtape);
 
-        printArticle(response.data[numEtape-1]);
+
 
 
     })

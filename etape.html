@@ -2,58 +2,72 @@
 <html lang="fr">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/main.css">
-    <script src="https://kit.fontawesome.com/b0162d0160.js" crossorigin="anonymous"></script>
-    <title>Etape</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/leaflet.elevation-0.0.4-d3v4.css" />
+  <link rel="stylesheet" href="../css/main.css">
+  <script src="https://kit.fontawesome.com/b0162d0160.js" crossorigin="anonymous"></script>
+  <title>Etape</title>
 </head>
 
-<body id="itineraire">
+<body id="pagetape">
 
-    <!-- navbar -->
-    <nav>
-        <div class="logos">
-          <img src="img/logo-petit.png" alt="embleme" />
-          <img src="img/eurovelo.png" alt="logo" class="img1" />
-        </div>
-    
-        <ul class="list-unstyled">
-          <a id="link" href="#"><span id="burger"></span></a>
-          <li><a href="#">ACCEUIL</a></li>
-          <li><a href="#">ITINAIRERE</a></li>
-          <li><a href="#">T'EMOIGNAGES</a></li>
-          <li><a href="#">NEWS</a></li>
-          <li class="liens"><a href="https://www.facebook.com/EuroVelo/"><i class="fa-brands fa-facebook"></i></a>
-          <a href="https://twitter.com/ECFEuroVelo?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><i class="fa-brands fa-twitter"></i></a>
-          <a href="https://www.instagram.com/ecfeurovelo/"><i class="fa-brands fa-instagram"></i></a></li>
-        </ul>
-      </nav>
-    <!-- fin de la navbar -->
+  <!-- navbar -->
+  <nav>
+    <div class="logos">
+      <img src="img/logo-petit.png" alt="embleme" />
+      <img src="img/eurovelo.png" alt="logo" class="img1" />
+    </div>
+
+    <ul class="list-unstyled">
+      <a id="link" href="#"><span id="burger"></span></a>
+      <li><a href="index.html">ACCEUIL</a></li>
+      <li><a href="itineraire.html">ITINÉRAIRE</a></li>
+      <li><a href="temoignage.html">TÉMOIGNAGES</a></li>
+      <li><a href="news.html">NEWS</a></li>
+      <li class="liens"><a href="https://www.facebook.com/EuroVelo/"><i class="fa-brands fa-facebook"></i></a>
+        <a href="https://twitter.com/ECFEuroVelo?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><i
+            class="fa-brands fa-twitter"></i></a>
+        <a href="https://www.instagram.com/ecfeurovelo/"><i class="fa-brands fa-instagram"></i></a>
+      </li>
+    </ul>
+  </nav>
+  <!-- fin de la navbar -->
 
 
 
-    <main id="pageItineraire">
-        <section class="cartels">
-            
+  <main id="etape">
+    <section id="contenu" class="etape">
 
-        </section>
 
-        <div id="map">
+    </section>
 
-        </div>
+    <div id="map" class="active">
 
-    </main>
+    </div>
 
-    <script src="js/leaflet/leaflet.js"></script>
-    <script src="js/leaflet/leaflet-src.js"></script>
-    <script src="js/leaflet/leaflet-providers.js"></script>
-    <script src="js/leaflet-gpx-main/gpx.js"></script>
-    <script src="js/api/etape.js"></script> 
-    
-    
-    <script src="js/nav.js"></script>
+
+    <button>
+      <span id="carte">
+        Voir carte
+      </span>
+      <span id="text" class="active">Voir Etapes</span>
+
+    </button>
+  </main>
+
+  <script src="js/leaflet/leaflet.js"></script>
+  <script src="js/leaflet/leaflet-src.js"></script>
+  <script src="js/leaflet/leaflet-providers.js"></script>
+  <script src="js/leaflet-gpx-main/gpx.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+  <script src="js/leaflet.elevation-0.0.4-d3v4.min.js"></script>
+<script src="js/api/etape.js"></script>
+  
+
+  <script src="js/nav.js"></script>
+  <script src="js/switchcontenu.js"></script>
 
 </body>
 
