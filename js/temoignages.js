@@ -55,10 +55,7 @@ function printtemoignage(data) {
         resume.innerText = article.attributes.resume;
         eltarticle.appendChild(resume);
 
-        let bouton = document.createElement("button");
-        bouton.classList.add("boutontab");
-        bouton.innerText = 'Lire la suite...'
-        eltarticle.appendChild(bouton);
+      
     }
 
 }
