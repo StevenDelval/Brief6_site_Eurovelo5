@@ -106,7 +106,7 @@ function printEtape(response, numEtape) {
             mapEtape[gpxetape] = new L.GPX(liengpx[gpxetape], {
                 polyline_options: {
                     color: '#e5b9d5',
-                    weight: 5,
+                    weight: 7,
                     lineCap: 'round'
                 }
             }).on('mouseover mousemove', function (e) {
@@ -114,7 +114,7 @@ function printEtape(response, numEtape) {
                     color: '#e5b9d5'
                 })
                 popup[gpxetape]
-                    .setLatLng(e.latlng)
+                    .setLatLng([e.latlng.lat + 0.004,e.latlng.lng ] )
                     .setContent("<h3>" + value.attributes.etape.toString() + "</h3>")
                     .openOn(map);
             }).on('mouseout', function (e) {
@@ -138,6 +138,9 @@ function printEtape(response, numEtape) {
             }
             el.addTo(map);
             var g = new L.GPX(liengpx[gpxetape], { async: true });
+            g.on('loaded', function(e) {
+                map.fitBounds(e.target.getBounds());
+      });
             g.on("addline", function (e) {
                 e.line.options.color = "#e5b9d5";
                 el.addData(e.line);
@@ -148,7 +151,7 @@ function printEtape(response, numEtape) {
             mapEtape[gpxetape] = new L.GPX(liengpx[gpxetape], {
                 polyline_options: {
                     color: '#6f6f6f',
-                    weight: 5,
+                    weight: 7,
                     lineCap: 'round'
                 }
             }).on('mouseover mousemove', function (e) {
@@ -156,7 +159,7 @@ function printEtape(response, numEtape) {
                     color: '#00246B'
                 })
                 popup[gpxetape]
-                    .setLatLng(e.latlng)
+                    .setLatLng([e.latlng.lat + 0.004,e.latlng.lng ])
                     .setContent("<h3>" + response[gpxetape].attributes.etape.toString() + "</h3>")
                     .openOn(map);
             }).on('mouseout', function (e) {
@@ -198,14 +201,14 @@ function printEtape(response, numEtape) {
     let divPresentation = document.createElement("div");
     divPresentation.classList.add("presentation");
 
-   let presentation = document.createElement("p");
+    let presentation = document.createElement("p");
     presentation.innerText = value.attributes.presentation;
     divPresentation.appendChild(presentation);
 
-   let lien = document.createElement("a");
-    lien.classList.add("carnet");
+    let lien = document.createElement("a");
+    lien.classList.add("div");
 
-   let heart = document.createElement("i");
+    let heart = document.createElement("i");
     heart.classList.add("fa-regular");
     heart.classList.add("fa-heart");
 
@@ -223,7 +226,7 @@ function printEtape(response, numEtape) {
     let divDistance = document.createElement("div");
     divDistance.classList.add("distance");
 
-   let circle = document.createElement("i");
+    let circle = document.createElement("i");
     circle.classList.add("fa-solid");
     circle.classList.add("fa-road");
     divDistance.appendChild(circle);
@@ -328,7 +331,7 @@ function printEtape(response, numEtape) {
     let description = document.createElement("div");
     description.classList.add("description");
 
-   let  titre = document.createElement("h3");
+    let titre = document.createElement("h3");
     titre.innerText = value.attributes.titre;
     description.appendChild(titre);
 
