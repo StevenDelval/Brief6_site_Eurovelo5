@@ -28,10 +28,9 @@ nav {
                 position: relative;
             }
 
-            a:hover {
+            &:hover {
                 border-bottom: $rose 4px solid;
-                
-                transition: all 0.4s ease;
+                transition: all 0.4s ease center;
                 
             }
         }
