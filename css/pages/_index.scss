@@ -70,6 +70,18 @@ body { background: #fff }
     }
   }
 }
+.cta-ombre{
+  a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+    width: 100%;
+    text-decoration: none;
+    color: inherit;
+  }
+}
 
 @media screen and (max-width:675px) {
 
