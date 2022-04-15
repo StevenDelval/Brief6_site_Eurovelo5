@@ -138,9 +138,7 @@ function printEtape(response, numEtape) {
             }
             el.addTo(map);
             var g = new L.GPX(liengpx[gpxetape], { async: true });
-            g.on('loaded', function(e) {
-                map.fitBounds(e.target.getBounds());
-      });
+            
             g.on("addline", function (e) {
                 e.line.options.color = "#e5b9d5";
                 el.addData(e.line);
