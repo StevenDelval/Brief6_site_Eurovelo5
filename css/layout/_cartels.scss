@@ -99,16 +99,12 @@
             font-size: 14px;
             text-align: auto;
         }
-        .lien-article {
-            display: flex;
-            justify-content: flex-end;
-            margin-top: auto;
-            a {
-                text-transform: uppercase;
-                color: $color-texte-fonce;
-                border-bottom: 4px solid $rose;
-                text-decoration: none;
-            }
+        a {
+            text-transform: uppercase;
+            color: $color-texte-fonce;
+            border-bottom: 4px solid $rose;
+            text-decoration: none;
+            max-width: fit-content;
         }
     }
 }

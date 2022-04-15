@@ -2,18 +2,33 @@ const url = "http://51.137.57.138:1337";
 const apiNews = "/api/news"
 const img = "?populate=*"
 
-function printNews(data) {
-    let gridArticle = document.querySelector(".grid-article");
-    for (let article of data.data) {//on a plusieurs données, on vas utiliser le for of
+function getParameterByName(param) {
+    var vars = {};
+    window.location.href.replace(location.hash, '').replace(
+        /[?&]+([^=&]+)=?([^&]*)?/gi, // regexp
+        function (m, key, value) { // callback
+            vars[key] = value !== undefined ? value : '';
+        }
+    );
+
+    if (param) {
+        return vars[param] ? vars[param] : null;
+    }
+    return vars;
+}
+
+function printNews(article) {
+    let gridArticle = document.querySelector(".page-article");
+    
         let eltArticle = document.createElement('article'); //on a créer un article mais il n'est nulle-part
         eltArticle.classList.add("cartel-actu-long");//Sert à attribuer une classe à l'element.
         gridArticle.appendChild(eltArticle);
 
         let picture = document.createElement("img");
-        picture.setAttribute("src", url+article.attributes.image.data.attributes.formats.medium.url);
+        picture.setAttribute("src", url + article.attributes.image.data.attributes.formats.medium.url);
         eltArticle.appendChild(picture);
 
-        divTextActu =  document.createElement("div");//La div est crée
+        divTextActu = document.createElement("div");//La div est crée
         divTextActu.classList.add("text-actu");//on lui a mis une classe
 
         //let content = document.createElement("div");
@@ -34,25 +49,24 @@ function printNews(data) {
         divTextActu.appendChild(contenu);
 
         let lien = document.createElement("a");
-        lien.href = "article.html?articleId="+article.id;
+        lien.href = "article.html?articleId=" + article.id;
         lien.innerText = "Lire l'Article";
         divTextActu.appendChild(lien);
-        
+
         eltArticle.appendChild(divTextActu);
-    }
+    
 }
 function getNews() {
     fetch(url + apiNews + img) //fetch est une commade js qui permet de faire des appels d'API
         .then(response => response.json())//on vas récupérer des données en convertisant nos données en Json
-        .then(function(response){
+        .then(function (response) {
             response.data.sort(function (a, b) {
                 return a.id - b.id;
             })
-        
-            printNews(response)}) 
+            numArticle = getParameterByName("articleId")
+            printNews(response.data[numArticle - 1])
+        })
         .catch(error => alert("erreur : " + error)); //pour prevenir quand on tombe sur une erreur
 }
 
 getNews();
-//pour appeler la fonction qu'on viens de faire
-
