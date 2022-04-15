@@ -129,7 +129,7 @@ function printArticle(value) {
                 color: '#e5b9d5'
             })
             popup[cartel.id - 1]
-                .setLatLng(e.latlng)
+                .setLatLng([e.latlng.lat + 0.004,e.latlng.lng ])
                 .setContent("<h3>" + cartel.attributes.etape.toString() + "</h3>")
                 .openOn(map);
         }).on('mouseout', function (e) {

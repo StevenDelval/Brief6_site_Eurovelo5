@@ -114,7 +114,7 @@ function printEtape(response, numEtape) {
                     color: '#e5b9d5'
                 })
                 popup[gpxetape]
-                    .setLatLng(e.latlng)
+                    .setLatLng([e.latlng.lat + 0.004,e.latlng.lng ] )
                     .setContent("<h3>" + value.attributes.etape.toString() + "</h3>")
                     .openOn(map);
             }).on('mouseout', function (e) {
@@ -156,7 +156,7 @@ function printEtape(response, numEtape) {
                     color: '#00246B'
                 })
                 popup[gpxetape]
-                    .setLatLng(e.latlng)
+                    .setLatLng([e.latlng.lat + 0.004,e.latlng.lng ])
                     .setContent("<h3>" + response[gpxetape].attributes.etape.toString() + "</h3>")
                     .openOn(map);
             }).on('mouseout', function (e) {
