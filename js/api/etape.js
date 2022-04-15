@@ -139,7 +139,6 @@ function printEtape(response, numEtape) {
             el.addTo(map);
             var g = new L.GPX(liengpx[gpxetape], { async: true });
             g.on('loaded', function(e) {
-                console.log(e)
                 map.fitBounds(e.target.getBounds());
       });
             g.on("addline", function (e) {
