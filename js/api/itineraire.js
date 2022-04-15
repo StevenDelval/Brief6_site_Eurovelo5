@@ -41,7 +41,7 @@ function printArticle(value) {
         let figure = document.createElement("figure");
 
         let imgetape = document.createElement("img");
-        
+
         imgetape.src = url + cartel.attributes.imgetape.data.attributes.formats.small.url;
         imgetape.classList.add("imgEtape");
         figure.appendChild(imgetape);
@@ -121,7 +121,7 @@ function printArticle(value) {
         mapEtape[cartel.id - 1] = new L.GPX(liengpx[cartel.id - 1], {
             polyline_options: {
                 color: '#00246B',
-                weight: 5,
+                weight: 7,
                 lineCap: 'round'
             }
         }).on('mouseover mousemove', function (e) {

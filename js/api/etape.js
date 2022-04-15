@@ -106,7 +106,7 @@ function printEtape(response, numEtape) {
             mapEtape[gpxetape] = new L.GPX(liengpx[gpxetape], {
                 polyline_options: {
                     color: '#e5b9d5',
-                    weight: 5,
+                    weight: 7,
                     lineCap: 'round'
                 }
             }).on('mouseover mousemove', function (e) {
@@ -148,7 +148,7 @@ function printEtape(response, numEtape) {
             mapEtape[gpxetape] = new L.GPX(liengpx[gpxetape], {
                 polyline_options: {
                     color: '#6f6f6f',
-                    weight: 5,
+                    weight: 7,
                     lineCap: 'round'
                 }
             }).on('mouseover mousemove', function (e) {
@@ -198,14 +198,14 @@ function printEtape(response, numEtape) {
     let divPresentation = document.createElement("div");
     divPresentation.classList.add("presentation");
 
-   let presentation = document.createElement("p");
+    let presentation = document.createElement("p");
     presentation.innerText = value.attributes.presentation;
     divPresentation.appendChild(presentation);
 
-   let lien = document.createElement("a");
-    lien.classList.add("carnet");
+    let lien = document.createElement("a");
+    lien.classList.add("div");
 
-   let heart = document.createElement("i");
+    let heart = document.createElement("i");
     heart.classList.add("fa-regular");
     heart.classList.add("fa-heart");
 
@@ -223,7 +223,7 @@ function printEtape(response, numEtape) {
     let divDistance = document.createElement("div");
     divDistance.classList.add("distance");
 
-   let circle = document.createElement("i");
+    let circle = document.createElement("i");
     circle.classList.add("fa-solid");
     circle.classList.add("fa-road");
     divDistance.appendChild(circle);
@@ -328,7 +328,7 @@ function printEtape(response, numEtape) {
     let description = document.createElement("div");
     description.classList.add("description");
 
-   let  titre = document.createElement("h3");
+    let titre = document.createElement("h3");
     titre.innerText = value.attributes.titre;
     description.appendChild(titre);
 
