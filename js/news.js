@@ -10,7 +10,7 @@ function printNews(data) {
         gridArticle.appendChild(eltArticle);
 
         let picture = document.createElement("img");
-        picture.setAttribute("src", url+article.attributes.image.data.attributes.formats.small.url);
+        picture.setAttribute("src", url+article.attributes.image.data.attributes.formats.medium.url);
         eltArticle.appendChild(picture);
 
         divTextActu =  document.createElement("div");//La div est crée
@@ -34,6 +34,7 @@ function printNews(data) {
         contenu.classList.add("contenu-actu");
         divTextActu.appendChild(contenu);
 
+        
         eltArticle.appendChild(divTextActu);
     }
 }
