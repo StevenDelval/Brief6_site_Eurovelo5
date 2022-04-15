@@ -7,16 +7,19 @@
     max-width: 1400px;
     margin: 90px auto;
     padding: 10px;
-    article{
-        
+    article {
         border: 1px solid black;
         border-radius: 15px;
         overflow: hidden;
-
     }
-    
 
-    
+    h3 {
+        padding-left: 20px;
+    }
+    h5{
+        padding-left: 20px;
+    }
+
     .imgtab {
         width: 100%;
         height: 300px;
@@ -28,35 +31,24 @@
         max-width: 335px;
         max-height: 220px;
         padding: 10px 10px 10px 0;
-
+        padding-right: 20px;
         list-style: none;
         display: flex;
         flex-direction: row;
-        gap: 20px;
+        gap: 6px;
         float: right;
-        .blanc{
+        .blanc {
             color: rgb(122, 121, 121);
-        } 
-        .jaune{
+        }
+        .jaune {
             color: rgb(213, 160, 37);
         }
     }
     p {
         margin-top: 4%;
-        text-align: center;
+        text-align: justify;
+        padding: 20px;
     }
-    
-       
-    
- 
-}
-.boutontab {
-background-color: white;
-    width: 170px;
-    height: 40px;
-    float: right;
-    border: none;
-    text-decoration:underline pink 3px ;
 }
 
 @media screen and (max-width: 850px) {
@@ -64,7 +56,7 @@ background-color: white;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         grid-gap: 10px;
-        padding:10px;
+        padding: 10px;
     }
 }
 @media screen and (max-width: 550px) {
@@ -72,6 +64,6 @@ background-color: white;
         display: grid;
         grid-template-columns: repeat(1, 1fr);
         grid-gap: 10px;
-        padding:10px ;
+        padding: 10px;
     }
 }
