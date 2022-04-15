@@ -16,21 +16,28 @@ function printinfo(data) {
         }
         let titre = document.createElement("h1");
         titre.innerText = article.attributes.titre;
-
+        
+        let lien = document.createElement("a");
+        lien.setAttribute("href","article.html?articleID=" + article.id);
+        lien.innerText ="En savoir plus";
+        // eltArticle.appendChild(lien);
 
         eltArticle.classList.add("info-img")
         eltArticle.appendChild(titre);
         let picture = document.createElement("img");
         picture.setAttribute("src", url + article.attributes.illustration.data.attributes.url);
         eltArticle.appendChild(picture);
+        
+        
 
-        eltArticle.addEventListener("click", ()=>{
-            document.location.href = article.attributes.redirection ;
-        }
-        )
+        // eltArticle.addEventListener("click", ()=>{
+        //     document.location.href = article.attributes.redirection ;
+        // }
+        // )
         compteur++;
     }
 }
+
 
 function getinfo() {
 
