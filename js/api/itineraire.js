@@ -41,7 +41,7 @@ function printArticle(value) {
         let figure = document.createElement("figure");
 
         let imgetape = document.createElement("img");
-        
+
         imgetape.src = url + cartel.attributes.imgetape.data.attributes.formats.small.url;
         imgetape.classList.add("imgEtape");
         figure.appendChild(imgetape);
@@ -121,7 +121,7 @@ function printArticle(value) {
         mapEtape[cartel.id - 1] = new L.GPX(liengpx[cartel.id - 1], {
             polyline_options: {
                 color: '#00246B',
-                weight: 5,
+                weight: 7,
                 lineCap: 'round'
             }
         }).on('mouseover mousemove', function (e) {
@@ -129,7 +129,7 @@ function printArticle(value) {
                 color: '#e5b9d5'
             })
             popup[cartel.id - 1]
-                .setLatLng(e.latlng)
+                .setLatLng([e.latlng.lat + 0.004,e.latlng.lng ])
                 .setContent("<h3>" + cartel.attributes.etape.toString() + "</h3>")
                 .openOn(map);
         }).on('mouseout', function (e) {
