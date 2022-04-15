@@ -1,8 +1,11 @@
-body { background: #fff }
-#slidy-container { 
+body {
+  background: #fff
+}
+
+#slidy-container {
   width: 100%;
-   margin: 0 auto;
-   overflow-x:hidden;
+  margin: 0 auto;
+  overflow-x: hidden;
 }
 
 
@@ -17,21 +20,23 @@ body { background: #fff }
 .titre-pres {
   display: flex;
   gap: 20px;
-  i{
+
+  i {
     color: $rose;
     width: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
   }
-  h2{
+
+  h2 {
     font-size: 32px;
     font-weight: 500;
   }
 }
 
 .accueil-velo {
-  max-width: 100% ;
+  max-width: 100%;
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -41,25 +46,29 @@ body { background: #fff }
   max-width: fit-content;
   margin: 0 auto;
   margin-bottom: 2%;
+
   .quatre-cartels-accueil {
     margin-top: 40px;
     grid-column-start: 1;
     display: flex;
     gap: 20px;
+  }
 }
-}/*grille pour disposer les élément, pas besoin de l'intégrer ailleurs*/
+
+/*grille pour disposer les élément, pas besoin de l'intégrer ailleurs*/
 
 .actu {
   position: relative;
   max-width: fit-content;
   margin: 0 auto;
   margin-bottom: 2%;
-  
+
   .actu-img {
     /*background-image: url(https://media.eurovelo.com/images/2a/64/125_orig_cover1920.jpg);*/
     display: flex;
-  flex-flow: column;
-  align-items: center;
+    flex-flow: column;
+    align-items: center;
+
     .range-cartels {
       display: flex;
       gap: 20px;
@@ -70,8 +79,25 @@ body { background: #fff }
     }
   }
 }
-.cta-ombre{
-  a{
+
+.container-page2 {
+  .cta {
+    padding: 0;
+    a {
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      text-decoration: none;
+      color: inherit;
+    }
+  }
+}
+
+.cta-ombre {
+  a {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -85,22 +111,26 @@ body { background: #fff }
 
 @media screen and (max-width:675px) {
 
-  .accueil-velo{
+  .accueil-velo {
     display: flex;
     flex-flow: column;
     align-items: center;
-    .titre-soustitre-pres{
+
+    .titre-soustitre-pres {
       width: 75%;
     }
   }
-  .actu{
+
+  .actu {
     display: flex;
     flex-flow: column;
     align-items: center;
-    .titre-soustitre-pres{
+
+    .titre-soustitre-pres {
       width: 75%;
     }
-    .cta-ombre{
+
+    .cta-ombre {
       margin: 10px 0;
     }
   }
