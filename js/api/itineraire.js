@@ -34,37 +34,37 @@ let popup = [];
 function printArticle(value) {
     for (let cartel of value.data) {
 
-        article = document.createElement("article");
+        let article = document.createElement("article");
 
 
         //// Creation contenu gauche
-        figure = document.createElement("figure");
+        let figure = document.createElement("figure");
 
-        imgetape = document.createElement("img");
+        let imgetape = document.createElement("img");
         
         imgetape.src = url + cartel.attributes.imgetape.data.attributes.formats.small.url;
         imgetape.classList.add("imgEtape");
         figure.appendChild(imgetape);
 
-        figcaption = document.createElement("figcaption");
+        let figcaption = document.createElement("figcaption");
         figcaption.innerText = cartel.attributes.km + " Km";
         figure.appendChild(figcaption);
 
         article.appendChild(figure);
 
         //// Creation contenu droit
-        divContenu = document.createElement("div");
+        let divContenu = document.createElement("div");
         divContenu.classList.add("contenu");
 
         ////// Presentation
-        divPresentation = document.createElement("div");
+        let divPresentation = document.createElement("div");
         divPresentation.classList.add("presentation");
-        presentation = document.createElement("p");
+        let presentation = document.createElement("p");
         presentation.innerText = cartel.attributes.presentation
         divPresentation.appendChild(presentation);
-        lien = document.createElement("a");
+        let lien = document.createElement("a");
         lien.classList.add("carnet")
-        heart = document.createElement("i");
+        let heart = document.createElement("i");
         heart.classList.add("fa-regular");
         heart.classList.add("fa-heart");
         lien.setAttribute("href", "#");
@@ -73,16 +73,16 @@ function printArticle(value) {
         divContenu.appendChild(divPresentation);
 
         ////// Niveau
-        divNiv = document.createElement("div");
+        let divNiv = document.createElement("div");
 
 
-        circle = document.createElement("i");
+        let circle = document.createElement("i");
         circle.classList.add("fa-solid");
         circle.classList.add("fa-circle");
         divNiv.appendChild(circle);
 
 
-        textNiv = document.createElement("p");
+        let textNiv = document.createElement("p");
         switch (cartel.attributes.niveau) {
             case 1:
                 divNiv.classList.add("niveau-deb");
@@ -105,12 +105,12 @@ function printArticle(value) {
         divContenu.appendChild(divNiv);
 
         //////Etape
-        etape = document.createElement("h2");
+        let etape = document.createElement("h2");
         etape.innerText = cartel.attributes.etape
         divContenu.appendChild(etape)
 
         ////// Description
-        description = document.createElement("p");
+        let description = document.createElement("p");
         description.classList.add("description");
         description.innerText = cartel.attributes.description;
         divContenu.appendChild(description);

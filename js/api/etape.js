@@ -24,7 +24,6 @@ const section = document.querySelector("section.etape");
 switch ($_GET('etape')) {
     case "1":
         var map = L.map('map').setView([50.911651, 1.916826], 11);
-        console.log("ok")
         break;
     case "2":
         var map = L.map('map').setView([50.8442935, 2.093722], 11);
@@ -96,7 +95,7 @@ var liengpx = ["../gpx/calais-ardres.gpx",
 
 
 function printEtape(response, numEtape) {
-    value = response[numEtape - 1]
+    let value = response[numEtape - 1]
 
 
     // Ajout tracer map
@@ -173,16 +172,16 @@ function printEtape(response, numEtape) {
 
         }
     }
-    article = document.createElement("article");
+    let article = document.createElement("article");
     //////Etape
-    etape = document.createElement("h2");
+    let etape = document.createElement("h2");
 
     ///Lien retour
-    a = document.createElement("a");
+    let a = document.createElement("a");
     a.classList.add("back");
     a.href = "itineraire.html";
 
-    arrow = document.createElement("i");
+    let arrow = document.createElement("i");
     arrow.classList.add("fa-solid");
     arrow.classList.add("fa-arrow-left-long");
 
@@ -190,23 +189,23 @@ function printEtape(response, numEtape) {
     etape.appendChild(a);
 
     /// titre etape
-    span = document.createElement("span")
+    let span = document.createElement("span")
     span.innerText = value.attributes.etape;
 
     etape.appendChild(span)
     article.appendChild(etape);
     ///// Presentation
-    divPresentation = document.createElement("div");
+    let divPresentation = document.createElement("div");
     divPresentation.classList.add("presentation");
 
-    presentation = document.createElement("p");
+   let presentation = document.createElement("p");
     presentation.innerText = value.attributes.presentation;
     divPresentation.appendChild(presentation);
 
-    lien = document.createElement("a");
+   let lien = document.createElement("a");
     lien.classList.add("carnet");
 
-    heart = document.createElement("i");
+   let heart = document.createElement("i");
     heart.classList.add("fa-regular");
     heart.classList.add("fa-heart");
 
@@ -217,50 +216,50 @@ function printEtape(response, numEtape) {
     article.appendChild(divPresentation);
 
     // Parcour
-    divParcour = document.createElement("div");
+    let divParcour = document.createElement("div");
     divParcour.classList.add("parcour");
 
     //// Distance
-    divDistance = document.createElement("div");
+    let divDistance = document.createElement("div");
     divDistance.classList.add("distance");
 
-    circle = document.createElement("i");
+   let circle = document.createElement("i");
     circle.classList.add("fa-solid");
     circle.classList.add("fa-road");
     divDistance.appendChild(circle);
 
-    dis = document.createElement("p");
+    let dis = document.createElement("p");
     dis.innerText = value.attributes.km + " Km";
     divDistance.appendChild(dis);
 
     divParcour.appendChild(divDistance);
 
     ////duree
-    divDuree = document.createElement("div");
+    let divDuree = document.createElement("div");
     divDuree.classList.add("duree");
 
-    time = document.createElement("i");
+    let time = document.createElement("i");
     time.classList.add("fa-solid");
     time.classList.add("fa-clock");
     divDuree.appendChild(time);
 
-    temp = document.createElement("p");
+    let temp = document.createElement("p");
     temp.innerText = value.attributes.duree;
     divDuree.appendChild(temp);
 
     divParcour.appendChild(divDuree);
 
     ////// Niveau
-    divNiv = document.createElement("div");
+    let divNiv = document.createElement("div");
 
 
-    circleA = document.createElement("i");
+    let circleA = document.createElement("i");
     circleA.classList.add("fa-solid");
     circleA.classList.add("fa-circle");
     divNiv.appendChild(circleA);
 
 
-    textNiv = document.createElement("p");
+    let textNiv = document.createElement("p");
     switch (value.attributes.niveau) {
         case 1:
             divNiv.classList.add("niveau-deb");
@@ -289,9 +288,9 @@ function printEtape(response, numEtape) {
 
 
     //// Creation contenu image
-    figure = document.createElement("figure");
+    let figure = document.createElement("figure");
 
-    imgetape = document.createElement("img");
+    let imgetape = document.createElement("img");
     imgetape.src = url + value.attributes.imgetape.data.attributes.formats.large.url;
     imgetape.classList.add("imgEtape");
     figure.appendChild(imgetape);
@@ -300,24 +299,24 @@ function printEtape(response, numEtape) {
 
 
     // info ville
-    divVil = document.createElement("div");
+    let divVil = document.createElement("div");
     divVil.classList.add("villes");
 
-    depart = document.createElement("p");
+    let depart = document.createElement("p");
     depart.innerText = value.attributes.depart;
     divVil.appendChild(depart);
 
-    echange = document.createElement("i");
+    let echange = document.createElement("i");
     echange.classList.add("fa-solid");
     echange.classList.add("fa-arrow-right-arrow-left");
     divVil.appendChild(echange);
 
-    arrivee = document.createElement("p");
+    let arrivee = document.createElement("p");
     arrivee.innerText = value.attributes.arrivee;
     divVil.appendChild(arrivee);
 
     echange.addEventListener("click", (e) => {
-        divVil.classList.toggle("active")
+        divVil.classList.toggle("active");
     });
 
     article.appendChild(divVil);
@@ -326,14 +325,14 @@ function printEtape(response, numEtape) {
     ////// Description
 
 
-    description = document.createElement("div");
+    let description = document.createElement("div");
     description.classList.add("description");
 
-    titre = document.createElement("h3");
+   let  titre = document.createElement("h3");
     titre.innerText = value.attributes.titre;
     description.appendChild(titre);
 
-    pdescri = document.createElement("p");
+    let pdescri = document.createElement("p");
     pdescri.innerText = value.attributes.description;
     description.appendChild(pdescri);
 
