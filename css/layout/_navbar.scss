@@ -30,14 +30,13 @@ nav {
 
             a:hover {
                 border-bottom: $rose 4px solid;
-                transform-origin: center;
-                transition: all 450ms ease;
+                
+                transition: all 0.4s ease center;
             }
         }
     }
 
     .liens {
-        display: flex;
         display: none;
     }
 
