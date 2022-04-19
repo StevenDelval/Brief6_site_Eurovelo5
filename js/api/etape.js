@@ -79,18 +79,18 @@ let popup = [];
 
 // URL to your GPX file or the GPX itself
 //  Ajout Gpx //
-var liengpx = ["../gpx/calais-ardres.gpx",
-    "../gpx/ardres-watten.gpx",
-    "../gpx/watten-st-omer.gpx",
-    "../gpx/st-omer-aire-sur-la-lys.gpx",
-    "../gpx/aire-sur-la-lys-st-venant.gpx",
-    "../gpx/st-venant-bethune.gpx",
-    "../gpx/bethunes-olhain.gpx",
-    "../gpx/olhain-angres.gpx",
-    "../gpx/angres-lens.gpx",
-    "../gpx/lens-don.gpx",
-    "../gpx/don-lille.gpx",
-    "../gpx/lille-wattrelos.gpx"];
+var liengpx = ["gpx/calais-ardres.gpx",
+    "gpx/ardres-watten.gpx",
+    "gpx/watten-st-omer.gpx",
+    "gpx/st-omer-aire-sur-la-lys.gpx",
+    "gpx/aire-sur-la-lys-st-venant.gpx",
+    "gpx/st-venant-bethune.gpx",
+    "gpx/bethunes-olhain.gpx",
+    "gpx/olhain-angres.gpx",
+    "gpx/angres-lens.gpx",
+    "gpx/lens-don.gpx",
+    "gpx/don-lille.gpx",
+    "gpx/lille-wattrelos.gpx"];
 
 
 
