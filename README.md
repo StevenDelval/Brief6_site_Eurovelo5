@@ -1,4 +1,4 @@
-### Brief6_Gang_des_cyclistes_du_dimanche
+### Brief6
 
 ## Contexte du projet
 
